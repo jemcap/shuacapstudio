@@ -24,6 +24,13 @@ export function NavigationList() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <Link href="/work" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Work
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="/booking" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Booking
