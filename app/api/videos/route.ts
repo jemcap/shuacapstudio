@@ -1,4 +1,6 @@
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
+import videoMeta from '@/data/videos.json'
+
 
 const client = new S3Client({
   region: "eu-west-2",
@@ -15,9 +17,14 @@ export async function GET() {
   });
 
   const data = await client.send(command);
-  const videos = data.Contents?.map((item) => ({
-    key: item.Key,
-    url: `https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacap_studio_productions.mp4`
-  }));
+
+  const videos = data.Contents?.filter(item => item.Key?.endsWith('mp4')).map((item) => {
+    const vidMetaData = videoMeta.find(v => v.key === item.Key)
+    return {
+      key: item.Key,
+      url: `https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/${item.Key}`,
+      title: vidMetaData && vidMetaData.title || "Movie"
+    }
+  })
   return Response.json(videos)
 }

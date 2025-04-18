@@ -5,14 +5,14 @@ import { NavigationList } from "./navigation-menu.component";
 
 const Navbar: React.FC = async () => {
   return (
-    <header className="px-5 py-3 bg-black font-work-sans ">
-      <nav className="flex justify-between items-center align-element">
+    <header className="px-5 py-3  font-work-sans backdrop-filter backdrop-blur-sm">
+      <nav className="flex justify-between items-center align-element ">
         <Link href="/">
           <Image
             src="/shuacapstudio-logo.png"
             alt="logo"
-            width={144}
-            height={144}
+            width={75}
+            height={75}
           />
         </Link>
 
