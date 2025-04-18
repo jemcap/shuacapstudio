@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar.component";
 import localFont from "next/font/local";
 
+import ReduxProvider from "@/components/reduxprovider.component";
+
 const workSans = localFont({
   variable: "--font-work-sans",
   src: [
@@ -67,8 +69,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={workSans.variable}>
-        <Navbar />
-        {children}
+        <ReduxProvider>
+          <Navbar />
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );
