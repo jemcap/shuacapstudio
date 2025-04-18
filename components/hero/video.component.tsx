@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import VideoInfo from "./videoinfo.component";
 
@@ -18,6 +18,12 @@ export default function VideoGallery() {
       try {
         const response = await axios.get("/api/videos");
         dispatch(setVideos(response.data));
+
+        const defaultId = response.data.findIndex(
+          (v: any) => v.title === "shuacapstudio"
+        );
+
+        dispatch(setSelected(defaultId !== -1 ? defaultId : 0));
       } catch (error) {
         console.error(error.message);
         throw new Error(error);
@@ -28,8 +34,8 @@ export default function VideoGallery() {
 
   return (
     <>
-      <div className="align-element">
-        <section className="absolute inset-0 w-screen h-screen -z-10">
+      <div>
+        <section className="relative w-full h-screen -z-10">
           {videos[selected] && (
             <video
               key={videos[selected].key}
@@ -42,7 +48,7 @@ export default function VideoGallery() {
             </video>
           )}
         </section>
-        <section className="absolute bottom-5 w-fit z-10 text-white flex flex-col">
+        <section className=" justify-center items-center absolute bottom-5 w-full z-10 text-white flex flex-col">
           <ul className="list-disc flex flex-col font-bold lg:flex-row gap-20 text-2xl">
             {videos.length > 0 &&
               videos

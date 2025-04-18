@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 interface VideoProps {
   key: string;
@@ -6,11 +10,16 @@ interface VideoProps {
   title: string;
 }
 
-const VideoInfo = ({ video }: { video: VideoProps | null }) => {
-  if (!video) return null;
+const VideoInfo: React.FC<VideoProps> = () => {
+  const video = useSelector((state: RootState) => state.video.videos);
+  const selected = useSelector((state: RootState) => state.video.selected);
+
+  const selectedVid = video[selected] || null;
+  console.log(selectedVid);
+  if (!selectedVid || selectedVid.title === "shuacapstudio") return null;
   return (
-    <div>
-      <h2>{video.title}</h2>
+    <div className="text-black h-screen align-element py-20">
+      <h2 className="text-5xl font-bold">{selectedVid.title}</h2>
     </div>
   );
 };
