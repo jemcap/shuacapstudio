@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/navbar.component";
 import localFont from "next/font/local";
 
 import ReduxProvider from "@/components/reduxprovider.component";
+import Footer from "@/components/footer/footer.component";
 
 const workSans = localFont({
   variable: "--font-work-sans",
@@ -72,6 +73,7 @@ export default function RootLayout({
         <ReduxProvider>
           <Navbar />
           {children}
+          <Footer />
         </ReduxProvider>
       </body>
     </html>
