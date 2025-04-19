@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-
-import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,40 +9,70 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Menu, X } from "lucide-react"; // Or use any icon library
 
 export function NavigationList() {
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/work", label: "Work" },
+    { href: "/booking", label: "Booking" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/work" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Work
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/booking" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Booking
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contact
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <nav>
+      {/* Desktop Nav */}
+      <div className="hidden md:block">
+        <NavigationMenu>
+          <NavigationMenuList>
+            {navLinks.map((link) => (
+              <NavigationMenuItem key={link.href}>
+                <Link href={link.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {link.label}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+
+      {/* Mobile Hamburger */}
+      <div className="block md:hidden">
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button aria-label="Open menu">
+              <Menu className="w-8 h-8" />
+            </button>
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 bg-black/60 z-40" />
+            <Dialog.Content className="fixed top-0 right-0 w-3/4 max-w-xs h-full bg-black text-white z-50 shadow-lg flex flex-col p-6">
+              <div className="flex justify-end mb-8">
+                <Dialog.Close asChild>
+                  <button aria-label="Close menu">
+                    <X className="w-8 h-8" />
+                  </button>
+                </Dialog.Close>
+              </div>
+              <nav className="flex flex-col justify-end items-end gap-6 py-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-3xl font-semibold hover:text-orange-500 transition"
+                    onClick={() => document.body.click()} // closes modal on click
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
+      </div>
+    </nav>
   );
 }
