@@ -4,6 +4,9 @@ type Video = {
     key: string;
     url: string;
     title: string;
+    location?: string;
+    year: string;
+    host?: string;
 }
 
 interface VideoStateProps {

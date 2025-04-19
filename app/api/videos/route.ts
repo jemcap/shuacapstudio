@@ -23,7 +23,10 @@ export async function GET() {
     return {
       key: item.Key,
       url: `https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/${item.Key}`,
-      title: vidMetaData && vidMetaData.title || "Movie"
+      title: vidMetaData && vidMetaData.title || "Movie",
+      location: videoMeta && vidMetaData?.location || "Somewhere",
+      year: videoMeta && vidMetaData?.year || null,
+      host: vidMetaData && vidMetaData?.host || null
     }
   })
   return Response.json(videos)

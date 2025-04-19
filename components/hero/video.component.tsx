@@ -25,12 +25,17 @@ export default function VideoGallery() {
 
         dispatch(setSelected(defaultId !== -1 ? defaultId : 0));
       } catch (error) {
-        console.error(error.message);
-        throw new Error(error);
+        if (error instanceof Error) {
+          console.error(error.message);
+          throw new Error(error.message);
+        } else {
+          console.error(error);
+          throw new Error("An unknown error occurred");
+        }
       }
     };
     fetchVideo();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -48,7 +53,7 @@ export default function VideoGallery() {
             </video>
           )}
         </section>
-        <section className=" justify-center items-center absolute bottom-5 w-full z-10 text-white flex flex-col">
+        <section className=" justify-center items-center absolute bottom-10 w-full z-10 text-white flex flex-col">
           <ul className="list-disc flex flex-col font-bold lg:flex-row gap-20 text-2xl">
             {videos.length > 0 &&
               videos
