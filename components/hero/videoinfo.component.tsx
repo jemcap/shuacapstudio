@@ -20,7 +20,7 @@ const VideoInfo = () => {
   if (!selectedVid || selectedVid.title === "shuacapstudio") return null;
   return (
     <section className="py-20 h-full">
-      <div className="text-black align-element gap-20 grid grid-cols-1 lg:grid-cols-2">
+      <div className="text-black align-element gap-10 lg:gap-20 grid grid-cols-1 lg:grid-cols-2">
         <div>
           <p className="text-gray-400  text-xl">Title</p>
           <h2 className="text-5xl font-bold">{selectedVid.title}</h2>

@@ -39,39 +39,40 @@ export default function VideoGallery() {
 
   return (
     <>
-      <div>
-        <section className="relative w-full h-screen -z-10">
-          {videos[selected] && (
-            <video
-              key={videos[selected].key}
-              autoPlay
-              loop
-              muted
-              className="w-full h-full object-cover"
-            >
-              <source src={videos[selected].url} type="video/mp4" />
-            </video>
-          )}
-        </section>
-        <section className=" justify-center items-center absolute bottom-10 w-full z-10 text-white flex flex-col">
-          <ul className="list-disc flex flex-col font-bold lg:flex-row gap-20 text-2xl">
-            {videos.length > 0 &&
-              videos
-                .filter((video) => video.title !== "shuacapstudio")
-                .map((video, i) => (
+      <section className="relative w-full h-screen -z-10">
+        {videos[selected] && (
+          <video
+            key={videos[selected].key}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          >
+            <source src={videos[selected].url} type="video/mp4" />
+          </video>
+        )}
+      </section>
+      <section className="max-lg:px-7 justify-start lg:justify-center lg:items-center absolute bottom-10 w-full z-10 text-white flex flex-col">
+        <ul className="lg:list-disc flex flex-col font-bold lg:flex-row gap-10 lg:gap-20">
+          {videos.length > 0 &&
+            videos
+              .filter((video) => video.title !== "shuacapstudio")
+              .map((video, i) => (
+                <div>
+                  <p>{video.year}</p>
                   <li
                     key={video.key}
-                    className={`cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
-                      selected === i ? "text-orange-500 text-3xl" : ""
+                    className={`text-5xl lg:text-2xl cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
+                      selected === i ? "text-orange-500 text-6xl" : ""
                     }`}
                     onClick={() => dispatch(setSelected(i))}
                   >
                     {video.title}
                   </li>
-                ))}
-          </ul>
-        </section>
-      </div>
+                </div>
+              ))}
+        </ul>
+      </section>
     </>
   );
 }
