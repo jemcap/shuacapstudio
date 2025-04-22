@@ -16,7 +16,8 @@ export function NavigationList() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
-    { href: "/booking", label: "Booking" },
+    { href: "/events", label: "Events" },
+    { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ];
 

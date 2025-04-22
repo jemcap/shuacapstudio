@@ -5,7 +5,7 @@ import { NavigationList } from "./navigation-menu.component";
 
 const Navbar: React.FC = async () => {
   return (
-    <header className="px-5 py-3 fixed w-full font-work-sans backdrop-filter backdrop-blur-sm">
+    <header className="px-5 py-3 w-full font-work-sans bg-black">
       <nav className="flex justify-between items-center align-element ">
         <Link href="/">
           <Image

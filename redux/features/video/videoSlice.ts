@@ -7,6 +7,7 @@ type Video = {
     location?: string;
     year: string;
     host?: string;
+    description: string;
 }
 
 interface VideoStateProps {

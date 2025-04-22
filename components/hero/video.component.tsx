@@ -53,13 +53,12 @@ export default function VideoGallery() {
         )}
       </section>
       <section className="max-lg:px-7 justify-start lg:justify-center lg:items-center absolute bottom-10 w-full z-10 text-white flex flex-col">
-        <ul className="lg:list-disc flex flex-col font-bold lg:flex-row gap-10 lg:gap-20">
+        <ul className="flex flex-col font-bold lg:flex-row gap-10 lg:gap-20">
           {videos.length > 0 &&
             videos
               .filter((video) => video.title !== "shuacapstudio")
               .map((video, i) => (
                 <div>
-                  <p>{video.year}</p>
                   <li
                     key={video.key}
                     className={`text-5xl lg:text-2xl cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
