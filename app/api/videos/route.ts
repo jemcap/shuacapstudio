@@ -1,7 +1,6 @@
-import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
-import videoMeta from '@/data/videos.json'
 
-import type { Video } from '@/types/videoType.types'
+
+import type { Video } from '@/types/types'
 
 import { client } from "@/sanity/lib/client"
 

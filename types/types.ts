@@ -8,3 +8,11 @@ export type Video = {
     s3Key: string;
     description: string;
 }
+
+export type Event = {
+    _id: string;
+    title: string;
+    location?: string;
+    tag: string[];
+    s3Key: string;
+}
