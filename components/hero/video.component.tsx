@@ -17,13 +17,18 @@ export default function VideoGallery() {
     const fetchVideo = async () => {
       try {
         const response = await axios.get("/api/videos");
+        console.log(response);
         dispatch(setVideos(response.data));
 
-        const defaultId = response.data.findIndex(
+        const defaultVideo = response.data.find(
           (v: any) => v.title === "shuacapstudio"
         );
 
-        dispatch(setSelected(defaultId !== -1 ? defaultId : 0));
+        dispatch(
+          setSelected(
+            defaultVideo ? defaultVideo.s3Key : response.data[0]?.s3Key || null
+          )
+        );
       } catch (error) {
         if (error instanceof Error) {
           console.error(error.message);
@@ -35,20 +40,22 @@ export default function VideoGallery() {
       }
     };
     fetchVideo();
-  }, [dispatch]);
+  }, []);
+
+  const selectedVideo = videos.find((vid) => vid.s3Key === selected);
 
   return (
     <>
       <section className="relative w-full h-screen -z-10">
-        {videos[selected] && (
+        {selectedVideo && (
           <video
-            key={videos[selected].key}
+            key={selectedVideo._id}
             autoPlay
             loop
             muted
             className="w-full h-full object-cover"
           >
-            <source src={videos[selected].url} type="video/mp4" />
+            <source src={selectedVideo.url} type="video/mp4" />
           </video>
         )}
       </section>
@@ -57,13 +64,13 @@ export default function VideoGallery() {
           {videos.length > 0 &&
             videos
               .filter((video) => video.title !== "shuacapstudio")
-              .map((video, i) => (
-                <div key={video.key}>
+              .map((video) => (
+                <div key={video._id}>
                   <li
                     className={`text-5xl lg:text-2xl cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
-                      selected === i ? "text-orange-500 text-6xl" : ""
+                      selected === video.s3Key ? "text-orange-500 text-6xl" : ""
                     }`}
-                    onClick={() => dispatch(setSelected(i))}
+                    onClick={() => dispatch(setSelected(video.s3Key))}
                   >
                     {video.title}
                   </li>

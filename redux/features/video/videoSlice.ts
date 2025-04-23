@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type Video = {
-    key: string;
+    _id: string;
+    s3Key: string;
     url: string;
     title: string;
     location?: string;
@@ -12,12 +13,12 @@ type Video = {
 
 interface VideoStateProps {
     videos: Video[],
-    selected: number
+    selected: number | string
 }
 
 const initialState: VideoStateProps = {
     videos: [],
-    selected: 0
+    selected: ""
 }
 
 export const videoSlice = createSlice({
@@ -27,7 +28,7 @@ export const videoSlice = createSlice({
         setVideos(state, action: PayloadAction<Video[]>) {
             state.videos = action.payload
         },
-        setSelected(state, action: PayloadAction<number>) {
+        setSelected(state, action: PayloadAction<number | string>) {
             state.selected = action.payload
         }
     }
