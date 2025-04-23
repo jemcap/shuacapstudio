@@ -16,3 +16,19 @@ export type Event = {
     tag: string[];
     s3Key: string;
 }
+
+export type PackageType = {
+    name: string;
+    description: string;
+    price: number;
+    _key: string;
+  };
+  
+export type EventProps = {
+    _id: string;
+    title: string;
+    location: string;
+    tag: string[];
+    url: string;
+    packages: PackageType[];
+  };

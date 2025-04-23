@@ -50,6 +50,7 @@ export function NavigationList() {
           </Dialog.Trigger>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 bg-black/60 z-40" />
+            <Dialog.Title className="text-white">Hello</Dialog.Title>
             <Dialog.Content className="fixed top-0 right-0 w-3/4 max-w-xs h-full bg-black text-white z-50 shadow-lg flex flex-col p-6">
               <div className="flex justify-end mb-8">
                 <Dialog.Close asChild>

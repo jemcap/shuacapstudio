@@ -9,7 +9,8 @@ export async function GET() {
         title,
         location,
         tag,
-        s3Key
+        s3Key,
+        packages
         }`)
 
         const allowedExtensions = ['.jpg', '.png', '.tif']

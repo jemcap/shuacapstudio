@@ -58,9 +58,8 @@ export default function VideoGallery() {
             videos
               .filter((video) => video.title !== "shuacapstudio")
               .map((video, i) => (
-                <div>
+                <div key={video.key}>
                   <li
-                    key={video.key}
                     className={`text-5xl lg:text-2xl cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
                       selected === i ? "text-orange-500 text-6xl" : ""
                     }`}

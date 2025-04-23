@@ -3,14 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import EventCard from "../card/eventCard.component";
-
-type EventProps = {
-  _id: string;
-  title: string;
-  location: string;
-  tag: string[];
-  url: string;
-};
+import { EventProps } from "@/types/types";
 
 const EventComponent = () => {
   const [event, setEvent] = useState<EventProps[]>([]);
@@ -31,7 +24,7 @@ const EventComponent = () => {
   return (
     <div className="my-20">
       {event.map((ev) => (
-        <div key={ev._id} className="grid grid-cols-3">
+        <div key={ev._id} className="grid grid-cols-1 lg:grid-cols-3">
           <EventCard {...ev} />
         </div>
       ))}
