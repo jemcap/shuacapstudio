@@ -90,6 +90,20 @@ const EventCard = ({
           (() => {
             const selectedPackage = packages.find((p) => p._key === selected);
             if (!selectedPackage) return null;
+
+            const handleConfirm = async () => {
+              const res = await fetch("/api/checkout-session", {
+                method: "POST",
+                body: JSON.stringify({
+                  packageName: selectedPackage.name,
+                  price: selectedPackage.price,
+                }),
+                headers: { "Content-Type": "application/json" },
+              });
+              const data = await res.json();
+              window.location.href = data.url;
+            };
+
             return (
               <div className="border-t-2">
                 <div className="py-5">
@@ -102,11 +116,12 @@ const EventCard = ({
                   <h4>£{selectedPackage.price}</h4>
                 </div>
                 <div className="mt-7 border-2">
-                  <Link href={"#"}>
-                    <Button className="font-semibold text-xl cursor-pointer w-full">
-                      Next
-                    </Button>
-                  </Link>
+                  <Button
+                    className="font-semibold text-xl cursor-pointer w-full"
+                    onClick={handleConfirm}
+                  >
+                    Next
+                  </Button>
                 </div>
               </div>
             );
