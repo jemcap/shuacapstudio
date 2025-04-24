@@ -32,3 +32,12 @@ export type EventProps = {
     url: string;
     packages: PackageType[];
   };
+
+
+export type ServiceProps = {
+  title: string;
+  price: number;
+  audience: string;
+  description: string;
+  features: string[];
+}
