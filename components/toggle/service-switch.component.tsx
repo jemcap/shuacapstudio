@@ -1,13 +1,36 @@
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+"use client";
 
-const ServiceToggle = () => {
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
+const ServiceToggle = ({
+  service,
+  onActiveChange,
+}: {
+  service: string;
+  onActiveChange: (service: string) => void;
+}) => {
   return (
-    <div className="flex items-center space-x-2 h-56 justify-center">
-      <Switch id="service-switch" />
-      <Label htmlFor="service-switch" className="text-xl">
-        Website services
-      </Label>
+    <div className="flex items-center space-x-2 justify-center">
+      <ToggleGroup
+        type="single"
+        defaultValue="videography"
+        value={service}
+        onValueChange={(value) => onActiveChange(value)}
+        className="border rounded-lg p-1"
+      >
+        <ToggleGroupItem
+          value="videography"
+          className="text-white px-7 py-2 rounded-md data-[state=on]:bg-yellow-500 data-[state=on]:text-black"
+        >
+          Videography
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="webdev"
+          className="text-white px-7 py-2 rounded-md data-[state=on]:bg-yellow-500 data-[state=on]:text-black"
+        >
+          Web Development
+        </ToggleGroupItem>
+      </ToggleGroup>
     </div>
   );
 };
