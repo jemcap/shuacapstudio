@@ -12,3 +12,14 @@ export function formatCurrency(num: number) {
     currency: "GBP"
   })
 }
+
+export function formatDate(date: string) {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }
+
+  return new Date(date).toLocaleDateString("en-US", options)
+}

@@ -6,6 +6,8 @@ import localFont from "next/font/local";
 import ReduxProvider from "@/components/reduxprovider.component";
 import Footer from "@/components/footer/footer.component";
 
+import { ToastContainer } from "react-toastify";
+
 const workSans = localFont({
   variable: "--font-work-sans",
   src: [
@@ -73,6 +75,12 @@ export default function RootLayout({
         <ReduxProvider>
           <Navbar />
           {children}
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+          />
           <Footer />
         </ReduxProvider>
       </body>
