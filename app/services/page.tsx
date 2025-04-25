@@ -4,7 +4,7 @@ import React from "react";
 
 const ServicesPage = () => {
   return (
-    <div className="h-full  bg-black">
+    <div className="h-full">
       <div className="flex flex-col gap-10 justify-center items-center">
         <ServiceComponent />
       </div>

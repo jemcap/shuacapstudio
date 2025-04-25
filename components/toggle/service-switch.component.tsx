@@ -20,13 +20,13 @@ const ServiceToggle = ({
       >
         <ToggleGroupItem
           value="videography"
-          className="text-white px-7 py-2 rounded-md data-[state=on]:bg-yellow-500 data-[state=on]:text-black"
+          className="bg-gray-100 text-accent-foreground px-7 py-2  data-[state=on]:underline data-[state=on]:text-black"
         >
           Videography
         </ToggleGroupItem>
         <ToggleGroupItem
           value="webdev"
-          className="text-white px-7 py-2 rounded-md data-[state=on]:bg-yellow-500 data-[state=on]:text-black"
+          className="bg-gray-100 text-accent-foreground px-7 py-2 data-[state=on]:underline data-[state=on]:text-black"
         >
           Web Development
         </ToggleGroupItem>

@@ -22,7 +22,7 @@ const EventComponent = () => {
     fetchEvents();
   }, []);
   return (
-    <div className="my-20">
+    <div>
       {event.map((ev) => (
         <div key={ev._id} className="grid grid-cols-1 lg:grid-cols-3">
           <EventCard {...ev} />

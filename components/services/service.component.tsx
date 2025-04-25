@@ -11,21 +11,22 @@ const ServiceComponent = () => {
   const [activeService, setActiveService] = useState<string>("videography");
   return (
     <div className="align-element h-full py-20">
-      <div className="justify-center items-center flex">
-        <ServiceToggle
-          service={activeService}
-          onActiveChange={setActiveService}
-        />
-      </div>
-      <div className="my-10 text-white flex flex-col justify-center items-center text-center">
-        <h1 className=" font-bold text-4xl">
-          {activeService && activeService === "videography"
-            ? "Videography "
-            : "Web "}
-          Services
-        </h1>
-        <p>Choose the package that best fits your project needs</p>
-        <p>Hit Inquire and fill out the form, and I'll get back to you ASAP!</p>
+      <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center">
+        <div>
+          <ServiceToggle
+            service={activeService}
+            onActiveChange={setActiveService}
+          />
+        </div>
+        <div className="my-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
+          <h1 className=" font-semibold text-5xl">
+            {activeService && activeService === "videography"
+              ? "Videography "
+              : "Web "}
+            Services
+          </h1>
+          <p>Choose the package that best fits your project needs</p>
+        </div>
       </div>
       {activeService && activeService === "videography" ? (
         <div className="service-cards-grid">

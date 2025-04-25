@@ -28,25 +28,29 @@ const ServiceCard: React.FC<ServiceProps> = ({
   return (
     <>
       <Dialog>
-        <Card className="flex flex-col justify-between w-full h-full bg-accent-foreground text-white border border-gray-700 shadow-lg rounded-2xl p-6">
+        <Card className="flex flex-col justify-between w-full h-full bg-gray-100  border-gray-700 shadow-lg rounded-2xl p-6">
           <CardHeader className="text-3xl">
-            <CardTitle className="h-full">{title}</CardTitle>
-            <CardTitle className="text-4xl">
-              <span className="text-xl text-gray-400">from </span>
+            <CardTitle className="h-full text-accent-foreground">
+              {title}
+            </CardTitle>
+            <CardTitle className="text-4xl text-accent-foreground">
+              <span className="text-xl text-gray-600">from </span>
               {formatCurrency(price)}
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-10 h-full">
-            <CardDescription>{description}</CardDescription>
-            <CardDescription>
+          <CardContent className="space-y-10 h-full ">
+            <CardDescription className="text-black">
+              {description}
+            </CardDescription>
+            <CardDescription className="text-black">
               <h2>Who is this for?</h2>
               {audience}
             </CardDescription>
-            <CardDescription>
+            <CardDescription className="text-black">
               <ul className="mt-5">
                 {features.map((f) => (
                   <li key={uuidv4()} className="flex items-center">
-                    <FaCheck className="text-yellow-400 flex flex-1/3" />
+                    <FaCheck className="text-yellow-500 flex flex-1/3" />
 
                     <span className="w-2xl">{f}</span>
                   </li>
