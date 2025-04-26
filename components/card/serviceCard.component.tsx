@@ -38,7 +38,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
               {formatCurrency(price)}
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-10 h-full ">
+          <CardContent className="space-y-5 h-full ">
             <CardDescription className="text-black">
               {description}
             </CardDescription>
