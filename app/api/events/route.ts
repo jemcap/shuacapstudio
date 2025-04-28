@@ -28,7 +28,5 @@ export async function GET() {
             url: s3BaseUrl + v.s3Key
         }))
 
-        console.log(assetUrl)
-
         return Response.json(assetUrl)
 }

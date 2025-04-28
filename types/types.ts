@@ -35,6 +35,25 @@ export type EventProps = {
     packages: PackageType[];
   };
 
+export type FilmProps = {
+  _id: string;
+  title: string;
+  description: string;
+  host: string;
+  s3Key: string;
+  url: string;
+}
+export type WorkReelProps = {
+  _id: string;
+  title: string;
+  description: string;
+  host?: string;
+  client?: string;
+  link?: string;
+  s3Key: string;
+  url: string;
+}
+
 
 export type ServiceProps = {
   title: string;
