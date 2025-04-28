@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { WorkReelProps } from "@/types/types";
 import Reel from "@/components/card/reel.component";
+import Link from "next/link";
 
 const Websites = () => {
   const [websites, setWebsites] = useState<WorkReelProps[]>([]);
@@ -13,6 +14,7 @@ const Websites = () => {
     const fetchWebsites = async () => {
       try {
         const response = await axios.get("/api/websites");
+        console.log(response.data);
         setWebsites(response.data);
       } catch (error) {
         if (error instanceof Error) {
