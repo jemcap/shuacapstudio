@@ -6,7 +6,7 @@ interface WorkIdPageProps {
 }
 
 export default async function WorkIdPage({ params }: WorkIdPageProps) {
-  const { workId } = await params;
+  const { workId } = params;
   const decodedTitle = decodeURIComponent(workId);
 
   const content = await prisma.workReel.findUnique({
