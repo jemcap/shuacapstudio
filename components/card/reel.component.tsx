@@ -17,8 +17,10 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
       <Carousel className="w-full align-element">
         <CarouselContent>
           {info.map((content) => {
+            const href = `/work/${content.title}`;
+
             const CardInner = (
-              <Link href={`/work/${content.title}`} className="cursor-pointer">
+              <Link href={href} className="cursor-pointer">
                 <Card>
                   <CardContent className="flex items-center justify-center w-full h-[500px] p-0">
                     <img
