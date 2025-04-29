@@ -33,9 +33,9 @@ const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(10, "Please enter a valid phone number"),
-  eventDate: z.date({
-    required_error: "Please select an event date",
-  }),
+  // eventDate: z.date({
+  //   required_error: "Please select an event date",
+  // }),
   eventLocation: z.string().min(5, "Please provide an event location"),
   additionalDetails: z.string().optional(),
 });
@@ -129,7 +129,7 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name="eventDate"
             render={({ field }) => (
@@ -139,7 +139,7 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
-                        variant={"outline"}
+                        variant="outline"
                         className={cn(
                           "w-full pl-3 text-left font-normal",
                           !field.value && "text-muted-foreground"
@@ -160,13 +160,14 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
                       selected={field.value}
                       onSelect={field.onChange}
                       initialFocus
+                      className="[&_.rdp-head]:grid [&_.rdp-head]:grid-cols-7 [&_.rdp-head]:text-sm [&_.rdp-head]:font-medium"
                     />
                   </PopoverContent>
                 </Popover>
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
           <FormField
             control={form.control}
             name="eventLocation"

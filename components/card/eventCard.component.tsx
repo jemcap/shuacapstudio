@@ -55,7 +55,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
   return (
     <Dialog>
       <DialogTrigger className="cursor-pointer">
-        <Card className="w-full h-full overflow-hidden border-2 mt-5">
+        <Card className="w-full h-full overflow-hidden border-2 mt-2">
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
@@ -67,7 +67,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
         </Card>
       </DialogTrigger>
 
-      <DialogContent>
+      <DialogContent className="overflow-y-scroll h-2/3">
         <DialogHeader>
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
@@ -157,7 +157,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
               <p className="mb-4">
                 {packages.find((p) => p._key === selectedKey)?.description}
               </p>
-              <div className="font-semibold text-2xl mb-4">
+              <div className="font-bold text-3xl mb-4">
                 £{packages.find((p) => p._key === selectedKey)?.price}
               </div>
               <Button type="submit" className="w-full" disabled={isSubmitting}>

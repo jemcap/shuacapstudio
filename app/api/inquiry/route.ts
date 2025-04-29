@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
 
 I'm interested in your package: ${data.packageName}. Please review my details at your convenience and get back to me when you can. Thanks!
 
-Event Date: ${formatDate(data.eventDate)}
 Event Location: ${data.eventLocation}
 
 ${data.additionalDetails || "I'm looking forward to discussing this potential project with you."}
