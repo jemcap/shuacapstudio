@@ -67,7 +67,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
         </Card>
       </DialogTrigger>
 
-      <DialogContent className="overflow-y-scroll h-2/3">
+      <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
@@ -123,7 +123,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
             </div>
             <div>
               <label className="block text-sm font-medium">
-                Describe Your Athlete (e.g., red singlet)
+                Describe yourself (e.g., red singlet)
               </label>
               <input
                 type="text"

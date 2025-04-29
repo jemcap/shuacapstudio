@@ -14,7 +14,7 @@ model WorkReel {
     host        String?
     client      String?
     link        String?
-    s3Key       String
+    s3Key       String?
     url         String
     createdAt   DateTime @default(now())
 }

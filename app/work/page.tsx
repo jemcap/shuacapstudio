@@ -29,13 +29,13 @@ const Work = () => {
       <div className="align-element flex justify-center items-center gap-40 flex-col h-full">
         <section className="align-element w-full">
           <div className="flex-start flex space-y-10">
-            <h1 className="text-5xl font-semibold mb-10">Films</h1>
+            <h1 className="text-3xl font-semibold mb-10">Films</h1>
           </div>
           <Films />
         </section>
         <section className="align-element w-full">
           <div className="flex-start flex space-y-10">
-            <h1 className="text-5xl font-semibold mb-10">Websites</h1>
+            <h1 className="text-3xl font-semibold mb-10">Websites</h1>
           </div>
           <Websites />
         </section>

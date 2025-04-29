@@ -19,7 +19,7 @@ const ServiceComponent = () => {
           />
         </div>
         <div className="my-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
-          <h1 className=" font-semibold text-5xl">
+          <h1 className=" font-semibold text-3xl">
             {activeService && activeService === "videography"
               ? "Videography "
               : "Web "}
