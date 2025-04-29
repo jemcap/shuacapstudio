@@ -30,14 +30,7 @@ export async function POST(req: NextRequest) {
                 },
                 type: 'text'
             },
-            {
-                key: 'instagram_handle',
-                label: {
-                    type: 'custom',
-                    custom: 'Instagram (please enter "none" if not applicable)'
-                },
-                type: 'text'
-            },
+            
         ],
         mode: "payment",
         

@@ -1,42 +1,56 @@
-"use client";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
+import { useState } from "react";
+import Link from "next/link";
+import axios from "axios";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import { Button } from "@/components/ui/button";
+import { EventProps } from "@/types/types";
 
-import { PackageType } from "@/types/types";
-import Link from "next/link";
+const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [flight, setFlight] = useState("");
+  const [athleteDesc, setAthleteDesc] = useState("");
+  const [songLink, setSongLink] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-import { useState } from "react";
+  const handleConfirm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedKey) return;
+    const selectedPackage = packages.find((p) => p._key === selectedKey);
+    if (!selectedPackage) return;
 
-const EventCard = ({
-  title,
-  tag,
-  url,
-  packages,
-}: {
-  title: string;
-  location: string;
-  tag: string[];
-  url: string;
-  packages: PackageType[];
-}) => {
-  const [selected, setSelected] = useState<string | null>("");
+    setIsSubmitting(true);
+    try {
+      const res = await axios.post(
+        "/api/checkout-session",
+        {
+          packageName: selectedPackage.name,
+          price: selectedPackage.price,
+          fullName,
+          email,
+          flight,
+          athleteDesc,
+          songLink: selectedPackage.name === "Premium" ? songLink : undefined,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const data = res.data;
+      window.location.href = data.url;
+    } catch (error) {
+      console.error(error);
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <Dialog>
@@ -52,71 +66,106 @@ const EventCard = ({
           </CardHeader>
         </Card>
       </DialogTrigger>
+
       <DialogContent>
         <DialogHeader>
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
-          <DialogTitle className="text-3xl">{title}</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-wrap gap-5 ">
-          {packages &&
-            packages.map((p) => (
-              <button
-                key={p._key}
-                className={`bg-gray-200 p-2 rounded-lg text-sm cursor-pointer hover:shadow-2xl hover:bg-gray-300 transition-all ease-in-out ${selected === p._key ? "bg-orange-300" : ""}`}
-                onClick={() => {
-                  setSelected(p._key);
-                }}
-              >
-                {p.name}
-              </button>
-            ))}
+        <DialogTitle className="text-3xl mb-4">{title}</DialogTitle>
+
+        <div className="flex flex-wrap gap-5 mb-6">
+          {packages.map((p) => (
+            <button
+              key={p._key}
+              className={`bg-gray-200 p-2 rounded-lg text-sm hover:shadow-lg hover:bg-gray-300 transition-all ease-in-out ${selectedKey === p._key ? "bg-orange-300" : ""}`}
+              onClick={() => setSelectedKey(p._key)}
+            >
+              {p.name}
+            </button>
+          ))}
         </div>
-        {selected &&
-          (() => {
-            const selectedPackage = packages.find((p) => p._key === selected);
-            if (!selectedPackage) return null;
 
-            const handleConfirm = async () => {
-              const res = await fetch("/api/checkout-session", {
-                method: "POST",
-                body: JSON.stringify({
-                  packageName: selectedPackage.name,
-                  price: selectedPackage.price,
-                }),
-                headers: { "Content-Type": "application/json" },
-              });
-              const data = await res.json();
-              window.location.href = data.url;
-            };
+        {selectedKey && (
+          <form onSubmit={handleConfirm} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium">Full Name</label>
+              <input
+                type="text"
+                required
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="mt-1 block w-full border rounded p-2"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-1 block w-full border rounded p-2"
+              />
+            </div>
 
-            return (
-              <div className="border-t-2">
-                <div className="py-5">
-                  <h3 className="font-semibold">
-                    What you get in this package:
-                  </h3>
-                  <div>{selectedPackage.description}</div>
-                </div>
-                <div className="font-semibold text-3xl">
-                  <h4>£{selectedPackage.price}</h4>
-                </div>
-                <div className="mt-7 border-2">
-                  <Button
-                    className="font-semibold text-xl cursor-pointer w-full"
-                    onClick={handleConfirm}
-                  >
-                    Next
-                  </Button>
-                </div>
+            <div>
+              <label className="block text-sm font-medium">Which Flight?</label>
+              <input
+                type="text"
+                required
+                placeholder="e.g., Flight 1"
+                value={flight}
+                onChange={(e) => setFlight(e.target.value)}
+                className="mt-1 block w-full border rounded p-2"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium">
+                Describe Your Athlete (e.g., red singlet)
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="e.g., red singlet, yellow lifters"
+                value={athleteDesc}
+                onChange={(e) => setAthleteDesc(e.target.value)}
+                className="mt-1 block w-full border rounded p-2"
+              />
+            </div>
+
+            {packages
+              .find((p) => p._key === selectedKey)
+              ?.name.includes("Premium") && (
+              <div>
+                <label className="block text-sm font-medium">
+                  Music of choice
+                </label>
+                <input
+                  type="url"
+                  placeholder="Song — Artist/Band"
+                  value={songLink}
+                  onChange={(e) => setSongLink(e.target.value)}
+                  className="mt-1 block w-full border rounded p-2"
+                />
               </div>
-            );
-          })()}
+            )}
+
+            <div className="border-t pt-4">
+              <h3 className="font-semibold">What you get in this package:</h3>
+              <p className="mb-4">
+                {packages.find((p) => p._key === selectedKey)?.description}
+              </p>
+              <div className="font-semibold text-2xl mb-4">
+                £{packages.find((p) => p._key === selectedKey)?.price}
+              </div>
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Processing..." : "Next"}
+              </Button>
+            </div>
+          </form>
+        )}
       </DialogContent>
     </Dialog>
   );
