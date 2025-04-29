@@ -7,9 +7,8 @@ export async function POST(req: NextRequest) {
     const { packageName, price } = await req.json();
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
-        // TODO: Create these pages:
-        success_url: "https://yourdomain.com/success",
-    cancel_url: "https://yourdomain.com/cancel",
+        success_url: "http://localhost:3000/success",
+    cancel_url: "http://localhost:3000/cancel",
     // ====================================
         line_items: [
             {

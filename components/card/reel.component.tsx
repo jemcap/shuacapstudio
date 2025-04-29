@@ -35,7 +35,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
             return (
               <CarouselItem
                 key={content._id}
-                className="rounded-xl lg:basis-1/2"
+                className="rounded-xl lg:basis-1/2 "
               >
                 {content.link ? (
                   <a
@@ -60,7 +60,6 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
                       Client: {content.client}
                     </span>
                   )}
-                  <p className="text-base">{content.description}</p>
                 </div>
               </CarouselItem>
             );

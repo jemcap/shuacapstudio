@@ -24,23 +24,19 @@ interface FooterProps {
 
 const Footer = ({
   logo = {
-    alt: "blocks for shadcn/ui",
+    alt: "SHUACAP STUDIO logo",
     title: "SHUACAPSTUDIO",
-    url: "https://www.shadcnblocks.com",
+    url: "https://instagram.com/shuacapstudio",
   },
   menuItems = [
     {
       links: [
-        { text: "Instagram", url: "#" },
-        { text: "YouTube", url: "#" },
+        { text: "Instagram", url: "https://instagram.com/shuacapstudio" },
+        { text: "YouTube", url: "https://www.youtube.com/@shuacapstudio" },
       ],
     },
   ],
   copyright = `© ${new Date().getFullYear()} shuacapstudio.com. All rights reserved.`,
-  bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
 }: FooterProps) => {
   return (
     <section className="py-28  bg-black text-white">
@@ -70,13 +66,6 @@ const Footer = ({
           </div>
           <div className="mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium  md:flex-row md:items-center">
             <p>{copyright}</p>
-            <ul className="flex gap-4">
-              {bottomLinks.map((link, linkIdx) => (
-                <li key={linkIdx} className="underline hover:text-gray-400">
-                  <a href={link.url}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
           </div>
         </footer>
       </div>

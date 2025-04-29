@@ -43,7 +43,7 @@ const VideoInfo = () => {
           </div>
         </section>
 
-        <section className="flex justify-center items-center flex-col">
+        <section className="align-element flex flex-col border-t-2 pt-20">
           <p className="text-gray-400  text-xl">Description</p>
           <h2 className="text-3xl font-bold">{vid.description}</h2>
         </section>
