@@ -2,11 +2,11 @@ import React from "react";
 import prisma from "@/lib/prisma";
 
 interface WorkIdPageProps {
-  params: { workId: string };
+  params: Promise<{ workId: string }>;
 }
 
 export default async function WorkIdPage({ params }: WorkIdPageProps) {
-  const { workId } = params;
+  const { workId } = await params;
   const decodedTitle = decodeURIComponent(workId);
 
   const content = await prisma.workReel.findUnique({
