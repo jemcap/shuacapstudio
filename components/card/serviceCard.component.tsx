@@ -7,7 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+} from "@/components/ui/dialog";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -67,8 +72,10 @@ const ServiceCard: React.FC<ServiceProps> = ({
           </CardFooter>
         </Card>
         <DialogContent>
-          <h2 className="text-2xl font-bold">Inquire about {title}</h2>
-          <p>Fill out the form and we'll get back to you ASAP!</p>
+          <DialogHeader>
+            <h2 className="text-2xl font-bold">Inquire about {title}</h2>
+            <p>Please fill out the form and I'll get back to you ASAP!</p>
+          </DialogHeader>
           <InquiryForm packageName={title} />
         </DialogContent>
       </Dialog>
