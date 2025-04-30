@@ -14,7 +14,6 @@ const Websites = () => {
     const fetchWebsites = async () => {
       try {
         const response = await axios.get("/api/websites");
-        console.log(response.data);
         setWebsites(response.data);
       } catch (error) {
         if (error instanceof Error) {

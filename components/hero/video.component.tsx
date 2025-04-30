@@ -20,7 +20,6 @@ export default function VideoGallery() {
       setIsLoading(true);
       try {
         const response = await axios.get("/api/videos");
-        console.log(response);
         dispatch(setVideos(response.data));
 
         const defaultVideo = response.data.find(

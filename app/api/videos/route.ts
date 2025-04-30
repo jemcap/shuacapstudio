@@ -49,6 +49,6 @@ export async function GET() {
   //     host: vidMetaData && vidMetaData?.host || null
   //   }
   // })
-  console.log(videoUrl)
+
   return Response.json(videoUrl)
 }

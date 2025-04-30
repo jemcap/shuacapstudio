@@ -13,8 +13,6 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
     where: { title: decodedTitle },
   });
 
-  console.log(content);
-
   if (!content) {
     return (
       <div className="h-full flex items-center justify-center">

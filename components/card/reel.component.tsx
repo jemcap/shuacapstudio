@@ -19,18 +19,16 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
           {info.map((content) => {
             const href = `/work/${content.title}`;
 
-            const CardInner = (
-              <Link href={href} className="cursor-pointer">
-                <Card>
-                  <CardContent className="flex items-center justify-center w-full h-[500px] p-0">
-                    <img
-                      src={content.url}
-                      alt={content.title}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </CardContent>
-                </Card>
-              </Link>
+            const CardContentInner = (
+              <Card>
+                <CardContent className="flex items-center justify-center w-full h-[500px] p-0">
+                  <img
+                    src={content.url}
+                    alt={content.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </CardContent>
+              </Card>
             );
             return (
               <CarouselItem
@@ -43,10 +41,12 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {CardInner}
+                    {CardContentInner}
                   </a>
                 ) : (
-                  CardInner
+                  <Link href={href} className="cursor-pointer block">
+                    {CardContentInner}
+                  </Link>
                 )}
                 <div className="flex flex-col justify-center mt-4">
                   <h1 className="text-xl font-bold">{content.title}</h1>
