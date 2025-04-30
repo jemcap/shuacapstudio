@@ -7,8 +7,8 @@ export async function POST(req: NextRequest) {
     const { packageName, price } = await req.json();
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
-        success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/cancel",
+        success_url: "https://shuacapstudio.vercel.app/success",
+    cancel_url: "https://shuacapstudio.vercel.app/cancel",
     // ====================================
         line_items: [
             {
