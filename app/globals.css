@@ -129,7 +129,7 @@ body {
 
 @layer components {
   .align-element {
-    @apply mx-auto max-w-[90rem] px-2;
+    @apply mx-auto max-w-[85rem] px-3;
   }
 }
 
