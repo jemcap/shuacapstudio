@@ -17,7 +17,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
   return (
     <>
       <Carousel
-        className="w-[70vw] lg:w-full align-element"
+        className="w-[70vw] lg:w-[75vw] align-element"
         plugins={[Autoplay({ delay: 3000 })]}
       >
         <CarouselContent>
