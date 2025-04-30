@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Menu, X } from "lucide-react"; // Or use any icon library
+import { Menu, X } from "lucide-react";
 
 export function NavigationList() {
   const navLinks = [
@@ -20,6 +20,8 @@ export function NavigationList() {
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ];
+
+  const [open, setOpen] = React.useState(false);
 
   return (
     <nav>
@@ -41,8 +43,8 @@ export function NavigationList() {
       </div>
 
       {/* Mobile Hamburger */}
-      <div className="block md:hidden">
-        <Dialog.Root>
+      <div className="md:hidden flex justify-center">
+        <Dialog.Root open={open} onOpenChange={setOpen}>
           <Dialog.Trigger asChild>
             <button aria-label="Open menu">
               <Menu className="w-8 h-8" />
@@ -65,7 +67,7 @@ export function NavigationList() {
                     key={link.href}
                     href={link.href}
                     className="text-3xl font-semibold hover:text-orange-500 transition"
-                    onClick={() => document.body.click()} // closes modal on click
+                    onClick={() => setOpen(false)} // Properly closes the modal
                   >
                     {link.label}
                   </Link>
