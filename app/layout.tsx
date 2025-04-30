@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar.component";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 
 import ReduxProvider from "@/components/reduxprovider.component";
 import Footer from "@/components/footer/footer.component";
@@ -84,6 +85,7 @@ export default function RootLayout({
             hideProgressBar={false}
             newestOnTop={false}
           />
+          <Analytics />
           <Footer />
         </ReduxProvider>
       </body>
