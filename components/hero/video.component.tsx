@@ -65,6 +65,9 @@ export default function VideoGallery() {
                 loop
                 muted
                 className="w-full h-full object-cover"
+                controls={false}
+                playsInline
+                webkit-playsinline="true"
               >
                 <source src={selectedVideo.url} type="video/mp4" />
               </video>
