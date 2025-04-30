@@ -29,12 +29,12 @@ const ServiceCard: React.FC<ServiceProps> = ({
     <>
       <Dialog>
         <Card className="flex flex-col justify-between w-full h-full bg-gray-100  border-gray-700 shadow-lg rounded-2xl p-6">
-          <CardHeader className="text-3xl">
+          <CardHeader className="text-4xl lg:text-2xl">
             <CardTitle className="h-full text-accent-foreground">
               {title}
             </CardTitle>
-            <CardTitle className="text-4xl text-accent-foreground">
-              <span className="text-xl text-gray-600">from </span>
+            <CardTitle className="text-4xl lg:text-2xl text-gray-500 mt-2 ">
+              <span className="text-sm text-gray-500">from </span>
               {formatCurrency(price)}
             </CardTitle>
           </CardHeader>
@@ -43,7 +43,7 @@ const ServiceCard: React.FC<ServiceProps> = ({
               {description}
             </CardDescription>
             <CardDescription className="text-black">
-              <h2>Who is this for?</h2>
+              <h2 className="font-semibold">Who is this for?</h2>
               {audience}
             </CardDescription>
             <CardDescription className="text-black">

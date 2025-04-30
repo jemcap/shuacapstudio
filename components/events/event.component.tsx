@@ -32,7 +32,8 @@ const EventComponent = () => {
     .find((pkg) => pkg.name.includes("Video"));
 
   const formattedName = videoPackages
-    ? videoPackages.name.split(" ").slice(1).join(" ").trim() + "s"
+    ? videoPackages.name.toUpperCase().split(" ").slice(1).join(" ").trim() +
+      "S"
     : "";
 
   if (isLoading) {
@@ -60,9 +61,9 @@ const EventComponent = () => {
         </div>
       )}
       {event.map((ev) => (
-        <div className="border-t-1 border-black" key={ev._id}>
+        <div className="border-t-2" key={ev._id}>
           {videoPackages && (
-            <h1 className="text-2xl font-semibold pt-2">{formattedName}</h1>
+            <h1 className="text-lg font-semibold">{formattedName}</h1>
           )}
           <div className="grid grid-cols-1 lg:grid-cols-3">
             <EventCard {...ev} />

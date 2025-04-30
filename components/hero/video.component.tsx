@@ -81,9 +81,9 @@ export default function VideoGallery() {
                   .map((video) => (
                     <div key={video._id}>
                       <li
-                        className={`text-5xl lg:text-2xl cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
+                        className={`text-3xl lg:text-lg cursor-pointer hover:text-gray-300 hover:font-extrabold duration-150 transition-all ease-in-out ${
                           selected === video.s3Key
-                            ? "text-orange-500 text-6xl"
+                            ? "text-orange-500 text-6xl underline"
                             : ""
                         }`}
                         onClick={() => dispatch(setSelected(video.s3Key))}

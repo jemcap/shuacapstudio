@@ -19,13 +19,15 @@ const ServiceComponent = () => {
           />
         </div>
         <div className="my-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
-          <h1 className=" font-semibold text-3xl">
+          <h1 className=" font-semibold text-lg uppercase">
             {activeService && activeService === "videography"
               ? "Videography "
               : "Web "}
             Services
           </h1>
-          <p>Choose the package that best fits your project needs</p>
+          <p className="text-gray-500 text-sm">
+            Choose the package that best fits your project needs
+          </p>
         </div>
       </div>
       {activeService && activeService === "videography" ? (

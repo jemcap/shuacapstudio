@@ -45,7 +45,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
   return (
     <Dialog>
       <DialogTrigger className="cursor-pointer">
-        <Card className="w-full h-full overflow-hidden border-2 mt-2">
+        <Card className="w-full h-auto overflow-hidden border-2 mt-2">
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
