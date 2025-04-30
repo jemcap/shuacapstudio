@@ -11,10 +11,15 @@ import {
 import { WorkReelProps } from "@/types/types";
 import Link from "next/link";
 
+import Autoplay from "embla-carousel-autoplay";
+
 const Reel = ({ info }: { info: WorkReelProps[] }) => {
   return (
     <>
-      <Carousel className="w-full align-element">
+      <Carousel
+        className="w-[70vw] lg:w-full align-element"
+        plugins={[Autoplay({ delay: 3000 })]}
+      >
         <CarouselContent>
           {info.map((content) => {
             const href = `/work/${content.title}`;
