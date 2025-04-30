@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card";
 import {
   Dialog,
+  DialogTitle,
+  DialogDescription,
   DialogTrigger,
   DialogContent,
   DialogHeader,
@@ -73,8 +75,12 @@ const ServiceCard: React.FC<ServiceProps> = ({
         </Card>
         <DialogContent>
           <DialogHeader>
-            <h2 className="text-2xl font-bold">Inquire about {title}</h2>
-            <p>Please fill out the form and I'll get back to you ASAP!</p>
+            <DialogTitle className="text-2xl font-bold">
+              Inquire about {title}
+            </DialogTitle>
+            <DialogDescription>
+              Please fill out the form and I'll get back to you ASAP!
+            </DialogDescription>
           </DialogHeader>
           <InquiryForm packageName={title} />
         </DialogContent>

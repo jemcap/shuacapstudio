@@ -66,7 +66,6 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
               form.reset();
             } catch (error) {
               if (error instanceof Error) {
-                console.log(error.message);
                 toast.error(
                   "Oops, something went wrong. Please try again later."
                 );
