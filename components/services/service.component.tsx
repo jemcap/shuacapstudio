@@ -10,7 +10,7 @@ import ServiceToggle from "../toggle/service-switch.component";
 const ServiceComponent = () => {
   const [activeService, setActiveService] = useState<string>("videography");
   return (
-    <div className="align-element h-full py-20">
+    <div className="align-element h-full my-20">
       <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center">
         <div>
           <ServiceToggle
@@ -18,14 +18,14 @@ const ServiceComponent = () => {
             onActiveChange={setActiveService}
           />
         </div>
-        <div className="my-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
-          <h1 className=" font-semibold text-2xl uppercase">
+        <div className="mb-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
+          <h1 className=" font-semibold text-4xl ">
             {activeService && activeService === "videography"
               ? "Videography "
               : "Web "}
             Services
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500">
             Choose the package that best fits your project needs
           </p>
         </div>

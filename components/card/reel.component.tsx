@@ -54,17 +54,17 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
                   </Link>
                 )}
                 <div className="flex flex-col justify-center mt-4">
-                  <h1 className="text-xl font-bold">{content.title}</h1>
                   {content.host && (
                     <span className="text-sm text-gray-500">
-                      Host: {content.host}
+                      {content.host}
                     </span>
                   )}
                   {content.client && (
                     <span className="text-sm text-gray-500">
-                      Client: {content.client}
+                      {content.client}
                     </span>
                   )}
+                  <h1 className="text-xl font-bold">{content.title}</h1>
                 </div>
               </CarouselItem>
             );
