@@ -45,7 +45,7 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
       name: "",
       email: "",
       phone: "",
-      eventDate: "",
+      eventDate: undefined,
       eventLocation: "",
       additionalDetails: "",
     },
@@ -136,7 +136,12 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
                         ? new Date(field.value).toISOString().substring(0, 10)
                         : ""
                     }
-                    onChange={(e) => field.onChange(e.target.value)}
+                    onChange={(e) => {
+                      const dateValue = e.target.value
+                        ? new Date(e.target.value)
+                        : undefined;
+                      field.onChange(dateValue);
+                    }}
                     aria-required="true"
                   />
                 </FormControl>
