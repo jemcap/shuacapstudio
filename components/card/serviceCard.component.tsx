@@ -68,7 +68,10 @@ const ServiceCard: React.FC<ServiceProps> = ({
           </CardContent>
           <CardFooter className="flex justify-between">
             <DialogTrigger asChild>
-              <Button variant="outline" className="w-full text-black">
+              <Button
+                variant="outline"
+                className="w-full text-black cursor-pointer"
+              >
                 Inquire
               </Button>
             </DialogTrigger>
