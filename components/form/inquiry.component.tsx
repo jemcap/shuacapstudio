@@ -25,9 +25,10 @@ const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(10, "Please enter a valid phone number"),
-  // eventDate: z.date({
-  //   required_error: "Please select an event date",
-  // }),
+  eventDate: z.coerce.date({
+    required_error: "Please select an event date",
+    invalid_type_error: "Invalid date format",
+  }),
   eventLocation: z.string().min(5, "Please provide an event location"),
   additionalDetails: z.string().optional(),
 });
@@ -44,6 +45,7 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
       name: "",
       email: "",
       phone: "",
+      eventDate: "",
       eventLocation: "",
       additionalDetails: "",
     },
@@ -115,6 +117,28 @@ const InquiryForm = ({ packageName }: { packageName: string }) => {
                 <FormLabel>Mobile</FormLabel>
                 <FormControl>
                   <Input {...field} aria-required="true" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="eventDate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Event Date</FormLabel>
+                <FormControl>
+                  <Input
+                    type="date"
+                    value={
+                      field.value
+                        ? new Date(field.value).toISOString().substring(0, 10)
+                        : ""
+                    }
+                    onChange={(e) => field.onChange(e.target.value)}
+                    aria-required="true"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
