@@ -11,7 +11,7 @@ const ServiceComponent = () => {
   const [activeService, setActiveService] = useState<string>("videography");
   return (
     <div className="align-element h-full my-20">
-      <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center">
+      <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center gap-10">
         <div>
           <ServiceToggle
             service={activeService}
