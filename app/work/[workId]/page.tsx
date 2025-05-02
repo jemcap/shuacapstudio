@@ -25,7 +25,13 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
     <div className="h-full">
       <div>
         <div className="space-y-4">
-          <video controls muted loop className="w-full h-[750px] object-cover">
+          <video
+            controls
+            muted
+            loop
+            controlsList="nodownload"
+            className="w-full h-[750px] object-cover"
+          >
             <source src={content.url} type="video/mp4" />
           </video>
           <div className="h-full space-y-20 ">
