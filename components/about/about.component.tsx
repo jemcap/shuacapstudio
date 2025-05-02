@@ -18,10 +18,11 @@ const AboutMe = () => {
             cinematic techniques.
           </p>
           <p className="mt-4 text-lg text-gray-600">
-            Whether it's developing interactive installations, launching custom
-            CMS-driven platforms, or collaborating on commercial and artistic
+            Whether I'm developing interactive installations, launching bespoke
+            web-based platforms, or collaborating on commercial and artistic
             projects, I bring technical expertise and creative vision to every
-            step of the process.
+            step—helping businesses stand out, engage their audiences, and
+            elevate their brand.
           </p>
         </div>
         <div>
