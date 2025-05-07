@@ -6,8 +6,8 @@ export default function SuccessPage() {
         Thank you for your purchase! A confirmation email has been sent to you.
       </p>
       <p className="mt-4 text-lg text-gray-700">
-        If you purchased the <strong>Premium Video Package</strong>, you'll
-        receive a separate email from me shortly with a brief form to complete.
+        I'll email you shortly with a quick and simple form to complete so we
+        can process your order as smoothly as possible.
       </p>
     </div>
   );
