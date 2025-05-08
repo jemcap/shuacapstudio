@@ -51,7 +51,7 @@ const EventComponent = () => {
   }
 
   return (
-    <div>
+    <div className="h-screen">
       {event.length === 0 && (
         <div className="flex flex-col items-center justify-center py-10">
           <h1 className="text-2xl font-bold mb-2 text-center">

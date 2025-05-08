@@ -50,7 +50,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
     <Dialog>
       <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out">
         <Card className="w-full h-auto overflow-hidden border-2 mt-2 rounded-none">
-          <div className="relative w-full h-80">
+          <div className="relative w-full h-32 md:h-80">
             <div className="absolute bottom-5 left-5 flex flex-row gap-2">
               {tag.map((t, idx) => (
                 <small
