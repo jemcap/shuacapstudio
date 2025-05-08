@@ -5,8 +5,8 @@ import Websites from "@/components/work/websites/websites.component";
 
 const Work = () => {
   return (
-    <div className="h-full my-20">
-      <section className="align-element text-center justify-center items-center lg:text-start lg:justify-start lg:items-start mb-10">
+    <div className="h-full mb-20 pt-28">
+      <section className="align-element text-center  justify-center items-center lg:text-start lg:justify-start lg:items-start mb-10">
         <h1 className="text-4xl font-semibold">Screens & Scenes</h1>
         <p className="text-gray-500">
           Films, websites, and the craft behind both.

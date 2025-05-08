@@ -7,7 +7,10 @@ export default function Home() {
     <>
       <VideoGallery />
       <VideoInfo />
-      <AboutMe />
+
+      <main>
+        <AboutMe />
+      </main>
     </>
   );
 }

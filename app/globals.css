@@ -7,6 +7,7 @@
 
 body {
   font-family: var(--font-work-sans), sans-serif;
+  background-color: #faf9f6;
 }
 
 @theme inline {
