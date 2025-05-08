@@ -35,6 +35,22 @@ export default {
             { name: "name", title: "Name", type: "string" },
             { name: "description", title: "Description", type: "text" },
             { name: "price", title: "Price", type: "number" },
+            {
+              name: "priceDiscount",
+              title: "Price Discount",
+              type: "number",
+            },
+            {
+              name: "earlyBirdPrice",
+              title: "Early Bird Price",
+              type: "number",
+            },
+            {
+              name: "earlyBirdStart",
+              title: "Early Bird Start",
+              type: "datetime",
+            },
+            { name: "earlyBirdEnd", title: "Early Bird End", type: "datetime" },
           ],
         },
       ],

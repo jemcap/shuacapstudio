@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Link from "next/link";
 import axios from "axios";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -16,11 +15,17 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const getCurrentPrice = (pkg: any) => {
+    return pkg.priceDiscount ?? pkg.price;
+  };
+
   const handleConfirm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedKey) return;
     const selectedPackage = packages.find((p) => p._key === selectedKey);
     if (!selectedPackage) return;
+
+    const priceToSend = getCurrentPrice(selectedPackage);
 
     setIsSubmitting(true);
     try {
@@ -28,14 +33,13 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
         "/api/checkout-session",
         {
           packageName: selectedPackage.name,
-          price: selectedPackage.price,
+          price: priceToSend,
         },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
-      const data = res.data;
-      window.location.href = data.url;
+      window.location.href = res.data.url;
     } catch (error) {
       console.error(error);
       setIsSubmitting(false);
@@ -44,7 +48,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300  ease-in-out">
+      <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out">
         <Card className="w-full h-auto overflow-hidden border-2 mt-2 rounded-none">
           <div className="relative w-full h-80">
             <div className="absolute bottom-5 left-5 flex flex-row gap-2">
@@ -59,17 +63,30 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
             </div>
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
-          <CardHeader className="pb-5 ">
+          <CardHeader className="pb-5">
             <CardTitle className="text-lg lg:text-xl text-start">
               <h1>{title}</h1>
               <p className="text-gray-500 text-sm">
                 from £
                 <span>
-                  {
-                    packages
-                      .map((p) => p.price)
-                      .sort((a: number, b: number) => a - b)[0]
-                  }
+                  {(() => {
+                    const sorted = [...packages].sort((a, b) => {
+                      const aPrice = getCurrentPrice(a);
+                      const bPrice = getCurrentPrice(b);
+                      return aPrice - bPrice;
+                    });
+                    const price = sorted[0];
+                    return price.priceDiscount ? (
+                      <>
+                        {price.priceDiscount}{" "}
+                        <span className="line-through text-gray-300">
+                          £{price.price}
+                        </span>
+                      </>
+                    ) : (
+                      price.price
+                    );
+                  })()}
                 </span>
               </p>
             </CardTitle>
@@ -101,22 +118,45 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
           ))}
         </div>
 
-        {selectedKey && (
-          <form onSubmit={handleConfirm} className="space-y-4">
-            <div className="border-t pt-4">
-              <h3 className="font-semibold">What you get in this package:</h3>
-              <p className="mb-4">
-                {packages.find((p) => p._key === selectedKey)?.description}
-              </p>
-              <div className="font-bold text-3xl mb-4">
-                £{packages.find((p) => p._key === selectedKey)?.price}
-              </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Processing..." : "Next"}
-              </Button>
-            </div>
-          </form>
-        )}
+        {selectedKey &&
+          (() => {
+            const selectedPackage = packages.find(
+              (p) => p._key === selectedKey
+            );
+            const discountedPrice = selectedPackage?.priceDiscount;
+
+            return (
+              <form onSubmit={handleConfirm} className="space-y-4">
+                <div className="border-t pt-4">
+                  <h3 className="font-semibold">
+                    What you get in this package:
+                  </h3>
+                  <p className="mb-4">{selectedPackage?.description}</p>
+
+                  <div className="font-bold text-3xl mb-4">
+                    {discountedPrice ? (
+                      <>
+                        £{discountedPrice}{" "}
+                        <span className="line-through text-gray-300">
+                          £{selectedPackage?.price}
+                        </span>
+                      </>
+                    ) : (
+                      <>£{selectedPackage?.price}</>
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Processing..." : "Next"}
+                  </Button>
+                </div>
+              </form>
+            );
+          })()}
       </DialogContent>
     </Dialog>
   );

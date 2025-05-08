@@ -23,6 +23,10 @@ export type PackageType = {
     name: string;
     description: string;
     price: number;
+    priceDiscount?: number
+    earlyBirdPrice?: number;
+    earlyBirdStart?: number | Date;
+    earlyBirdEnd?: number | Date;
     _key: string;
   };
   
