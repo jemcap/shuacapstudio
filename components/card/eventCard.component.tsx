@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { EventProps } from "@/types/types";
 
-const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
+const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -47,6 +47,16 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
       <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300  ease-in-out">
         <Card className="w-full h-auto overflow-hidden border-2 mt-2 rounded-none">
           <div className="relative w-full h-80">
+            <div className="absolute bottom-5 left-5 flex flex-row gap-2">
+              {tag.map((t, idx) => (
+                <small
+                  key={idx}
+                  className="text-white bg-black-200/40 backdrop-blur-xl py-1 px-4 rounded-full text-center"
+                >
+                  {t}
+                </small>
+              ))}
+            </div>
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
           <CardHeader className="pb-5 ">
