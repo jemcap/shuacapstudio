@@ -45,11 +45,11 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
   return (
     <Dialog>
       <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300  ease-in-out">
-        <Card className="w-full h-auto overflow-hidden border-2 mt-2">
-          <div className="relative w-full h-40">
+        <Card className="w-full h-auto overflow-hidden border-2 mt-2 rounded-none">
+          <div className="relative w-full h-80">
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
-          <CardHeader className="pb-5">
+          <CardHeader className="pb-5 ">
             <CardTitle className="text-lg lg:text-xl text-start">
               <h1>{title}</h1>
               <p className="text-gray-500 text-sm">
