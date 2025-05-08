@@ -14,7 +14,6 @@ const EventComponent = () => {
       setIsLoading(true);
       try {
         const response = await axios.get("/api/events");
-        console.log(response);
 
         setEvent(response.data);
       } catch (error) {

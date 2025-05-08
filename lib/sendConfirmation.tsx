@@ -118,7 +118,6 @@ export async function sendConfirmationEmail(email: string, formLink: string) {
       subject: "Your SHUACAP STUDIO Purchase Confirmation",
       html: htmlContent,
     });
-    console.log("Email sent!");
   } catch (error) {
     console.error("Failed to send email:", error);
   }

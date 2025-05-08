@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
   if (event.type === "charge.succeeded") {
     const session = event.data.object as Stripe.Charge;
     const email = session.billing_details.email;
-    console.log(email)
     if (email) {
       await sendConfirmationEmail(email, "https://docs.google.com/forms/d/1on9IUzlGnwpYg8OzhfH-dBqulo_k2AE6zGMzSJg7rvY/edit");
     }
