@@ -9,6 +9,7 @@ const EventComponent = () => {
   const [event, setEvent] = useState<EventProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  console.log(event);
   useEffect(() => {
     const fetchEvents = async () => {
       setIsLoading(true);

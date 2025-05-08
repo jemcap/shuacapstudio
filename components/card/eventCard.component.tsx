@@ -44,28 +44,42 @@ const EventCard: React.FC<EventProps> = ({ title, url, packages }) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="cursor-pointer">
+      <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300  ease-in-out">
         <Card className="w-full h-auto overflow-hidden border-2 mt-2">
           <div className="relative w-full h-40">
             <img src={url} alt={title} className="object-cover w-full h-full" />
           </div>
-          <CardHeader className="pb-2">
+          <CardHeader className="pb-5">
             <CardTitle className="text-lg lg:text-xl text-start">
-              {title}
+              <h1>{title}</h1>
+              <p className="text-gray-500 text-sm">
+                from £
+                <span>
+                  {
+                    packages
+                      .map((p) => p.price)
+                      .sort((a: number, b: number) => a - b)[0]
+                  }
+                </span>
+              </p>
             </CardTitle>
           </CardHeader>
         </Card>
       </DialogTrigger>
 
       <DialogContent className="max-h-[90vh] overflow-y-auto">
+        <div className="relative w-full h-40">
+          <img
+            src={url}
+            alt={title}
+            className="absolute inset-0 object-cover w-full h-full"
+          />
+        </div>
         <DialogHeader>
-          <div className="relative w-full h-40">
-            <img src={url} alt={title} className="object-cover w-full h-full" />
-          </div>
+          <DialogTitle className="text-2xl">{title}</DialogTitle>
         </DialogHeader>
-        <DialogTitle className="text-3xl mb-4">{title}</DialogTitle>
 
-        <div className="flex flex-wrap gap-5 mb-6">
+        <div className="flex flex-wrap gap-5 mb-2">
           {packages.map((p) => (
             <button
               key={p._key}
