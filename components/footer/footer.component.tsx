@@ -37,6 +37,10 @@ const Footer = ({
     },
   ],
   copyright = `© ${new Date().getFullYear()} shuacapstudio.com. All rights reserved.`,
+  bottomLinks = [
+    { text: "Terms of Service", url: "/terms" },
+    { text: "Privacy Policy", url: "/policy" },
+  ],
 }: FooterProps) => {
   return (
     <section className="py-28  bg-black text-white">
@@ -64,8 +68,15 @@ const Footer = ({
               </div>
             ))}
           </div>
-          <div className="mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium  md:flex-row md:items-center">
+          <div className="mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium md:flex-row md:items-center">
             <p>{copyright}</p>
+            <div className="flex flex-wrap gap-4">
+              {bottomLinks.map((link, idx) => (
+                <a key={idx} href={link.url} className="hover:text-gray-400">
+                  {link.text}
+                </a>
+              ))}
+            </div>
           </div>
         </footer>
       </div>
