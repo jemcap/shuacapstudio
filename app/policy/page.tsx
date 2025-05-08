@@ -2,8 +2,8 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <main className="max-w-4xl mx-auto my-16 px-4">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <main className="max-w-4xl mx-auto px-4 pt-28">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mb-20">
         <div className="px-8 py-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Privacy Policy
