@@ -43,9 +43,9 @@ const Footer = ({
   ],
 }: FooterProps) => {
   return (
-    <section className="py-28  bg-black text-white">
+    <section className="py-28 bg-black text-white w-full mt-auto">
       <div className="align-element">
-        <footer>
+        <footer className="mt-auto">
           <div className="flex flex-col">
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">

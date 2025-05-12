@@ -7,50 +7,51 @@ import ServiceCard from "../card/serviceCard.component";
 import { v4 as uuidv4 } from "uuid";
 import ServiceToggle from "../toggle/service-switch.component";
 
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const ServiceComponent = () => {
-  const [activeService, setActiveService] = useState<string>("videography");
   return (
     <div className="align-element h-full mb-20">
-      <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center gap-10">
-        <div>
-          <ServiceToggle
-            service={activeService}
-            onActiveChange={setActiveService}
-          />
-        </div>
-        <div className="mb-10 text-accent-foreground flex flex-col justify-center items-center text-center lg:text-start lg:justify-start lg:items-start">
-          <h1 className=" font-semibold text-4xl ">
-            {activeService && activeService === "videography"
-              ? "Videography "
-              : "Web "}
-            Services
+      <img
+        src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudiologo.png"
+        alt="Shuacap Studio logo"
+        className="w-full h-[500px] object-cover mb-12 "
+      />
+      <div className="flex flex-col  gap-10">
+        <div className="flex-start flex space-y-10 border-t-2 ">
+          <h1 className="text-lg font-semibold mb-5 uppercase">
+            Videography services
           </h1>
-          <p className="text-gray-500">
-            Choose the package that best fits your project needs
-          </p>
         </div>
       </div>
-      {activeService && activeService === "videography" ? (
-        <div className="service-cards-grid">
-          {serviceCardData.services.videography.map((card) => {
-            return (
-              <div key={uuidv4()} className="h-full">
-                <ServiceCard {...card} />
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="service-cards-grid">
-          {serviceCardData.services.website.map((card) => {
-            return (
-              <div key={uuidv4()} className="h-full">
-                <ServiceCard {...card} />
-              </div>
-            );
-          })}
-        </div>
-      )}
+
+      <div className="service-cards-grid">
+        {serviceCardData.services.videography.map((card, idx) => (
+          <motion.div
+            key={uuidv4()}
+            className="h-full"
+            custom={idx}
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+          >
+            <ServiceCard {...card} />
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

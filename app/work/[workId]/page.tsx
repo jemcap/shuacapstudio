@@ -30,7 +30,7 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
             muted
             loop
             controlsList="nodownload"
-            className="w-full h-[750px] object-cover"
+            className="w-full h-[1050px] object-cover"
           >
             <source src={content.url} type="video/mp4" />
           </video>
@@ -54,6 +54,12 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
                     <h1 className="text-3xl font-bold">{content.client}</h1>
                   </div>
                 )}
+                {content.type && (
+                  <div>
+                    <p className="text-gray-400  text-xl">Type</p>
+                    <h1 className="text-3xl font-bold">{content.type}</h1>
+                  </div>
+                )}
                 {content.link && (
                   <a
                     href={content.link}
@@ -67,7 +73,7 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
               </div>
               <section className="flex flex-col">
                 <p className="text-gray-400  text-xl">Description</p>
-                <h2 className="text-2xl">{content.description}</h2>
+                <h2 className="text-2xl mb-20">{content.description}</h2>
               </section>
             </div>
           </div>

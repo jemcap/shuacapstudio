@@ -18,7 +18,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
     <>
       <Carousel
         className="w-[70vw] lg:w-[75vw] align-element"
-        plugins={[Autoplay({ delay: 3000 })]}
+        plugins={[Autoplay({ delay: 2000 })]}
       >
         <CarouselContent>
           {info.map((content) => {
@@ -26,7 +26,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
 
             const CardContentInner = (
               <Card>
-                <CardContent className="flex items-center justify-center w-full h-[500px] p-0">
+                <CardContent className="flex items-center justify-center w-full h-[400px] md:h-[700px] lg:h-[900px] p-0">
                   <img
                     src={content.url}
                     alt={content.title}

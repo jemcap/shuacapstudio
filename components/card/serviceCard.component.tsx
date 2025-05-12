@@ -40,8 +40,8 @@ const ServiceCard: React.FC<ServiceProps> = ({
             <CardTitle className="h-full text-accent-foreground">
               {title}
             </CardTitle>
-            <CardTitle className="text-3xl text-orange-500">
-              <span className="text-sm text-gray-500">from </span>
+            <CardTitle className="text-2xl text-gray-500">
+              <span className="text-sm text-gray-400">from </span>
               {formatCurrency(price)}
             </CardTitle>
           </CardHeader>
