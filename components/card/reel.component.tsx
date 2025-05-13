@@ -26,7 +26,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
 
             const CardContentInner = (
               <Card>
-                <CardContent className="flex items-center justify-center w-full h-[400px] md:h-[700px] lg:h-[900px] p-0">
+                <CardContent className="flex items-center justify-center w-full h-[400px] md:h-[500px] lg:h-[600px] p-0">
                   <img
                     src={content.url}
                     alt={content.title}

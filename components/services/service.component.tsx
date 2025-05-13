@@ -28,7 +28,7 @@ const ServiceComponent = () => {
       <img
         src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudiologo.png"
         alt="Shuacap Studio logo"
-        className="w-full h-[500px] object-cover mb-12 "
+        className="w-full h-[300px] lg:h-[500px] object-cover mb-12 "
       />
       <div className="flex flex-col  gap-10">
         <div className="flex-start flex space-y-10 border-t-2 ">
