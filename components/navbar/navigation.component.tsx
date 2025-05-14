@@ -73,14 +73,14 @@ const Navigation = ({
   ],
 }: Navbar1Props) => {
   return (
-    <section className="py-4  w-full">
+    <section className="py-2  w-full">
       <div className="align-elements mx-auto flex items-center justify-between">
         {/* Desktop Menu */}
         <nav className="hidden lg:flex  w-full">
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8" alt={logo.alt} />
+              <img src={logo.src} className="max-h-10" alt={logo.alt} />
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
