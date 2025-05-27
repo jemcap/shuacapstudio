@@ -86,6 +86,7 @@ export default function RootLayout({
             newestOnTop={false}
           />
           <Analytics />
+          
           <Footer />
         </ReduxProvider>
       </body>

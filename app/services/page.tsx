@@ -1,4 +1,5 @@
 import ServiceCard from "@/components/card/serviceCard.component";
+import Chatbot from "@/components/chatbot.component";
 import ServiceComponent from "@/components/services/service.component";
 import React from "react";
 
@@ -7,6 +8,7 @@ const ServicesPage = () => {
     <div className="h-full">
       <div className="flex flex-col gap-10 justify-center items-center pt-28">
         <ServiceComponent />
+        <Chatbot />
       </div>
     </div>
   );

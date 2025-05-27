@@ -2,6 +2,7 @@
     "services": {
         "videography": [
             {
+                "id": 1,
                 "title": "Athlete Spotlight",
                 "price": 75,
                 "description": "A tailored short video that highlights your athletic performance, personal bests, or training techniques — perfect for social media or sharing with recruiters and coaches.",
@@ -15,6 +16,7 @@
                 ]
             },
             {
+                "id": 2,
                 "title": "Promo Builder",
                 "price": 165,
                 "description": "A sharp, brand-focused promotional video to market your training program, coaching business, or sports initiative. Perfect for social media and websites.",
@@ -30,6 +32,7 @@
                 ]
             },
             {
+                "id": 3,
                 "title": "Event Recap",
                 "price": 250,
                 "description": "Comprehensive, high-energy recap video of your sports event or training day. Show the atmosphere, key moments, and the community in action.",
@@ -45,6 +48,7 @@
                 ]
             },
             {
+                "id": 4,
                 "title": "Edit-Only Package",
                 "price": 50,
                 "description": "Already have footage? I'll professionally edit and enhance it with cinematic Colour grading, music, transitions, and graphics to create a polished final video.",
@@ -59,6 +63,7 @@
                 ]
             },
             {
+                "id": 5,
                 "title": "Team Highlights Compilation",
                 "price": 350,
                 "description": "A video package that compiles a team's best moments and key achievements into one polished highlight reel. Great for coaches and teams who want to showcase their season or special event performances.",
@@ -72,6 +77,7 @@
                 ]
             },
             {
+                "id": 6,
                 "title": "Product Demo Video",
                 "price": 150,
                 "description": "A concise and clear demonstration of your product in action. This video highlights key features and benefits to engage potential customers and showcase your product's value.",
@@ -83,49 +89,6 @@
                     "Inclusion of close-ups and detailed shots",
                     "Voiceover or text overlays to highlight key information",
                     "One round of feedback and revisions"
-                ]
-            }
-        ],
-        "website": [
-            {
-                "title": "Website Design (UX/UI)",
-                "price": 250,
-                "description": "A complete user interface and user experience design service tailored for modern web applications and websites. Ideal for startups and businesses looking to build a visually appealing, user-friendly site.",
-                "audience": "Startups, small businesses, and entrepreneurs needing a professional design layout before development.",
-                "features": [
-                    "Custom Figma design (desktop & mobile)",
-                    "Support for developing assets like logos, graphics, etc.",
-                    "Wireframes for key pages (Home, About, Services, Contact)",
-                    "UX-focused layout for intuitive navigation and flow",
-                    "Typography, colour palette, and design system",
-                    "Up to two rounds of revisions and design feedback"
-                ]
-            },
-            {
-                "title": "Landing Page Development",
-                "price": 150,
-                "description": "A responsive, fast-loading landing page designed to showcase a product, service, or campaign with clear calls to action and optimised performance.",
-                "audience": "Individuals or businesses running campaigns, product launches, or needing a quick online presence.",
-                "features": [
-                    "Custom-coded responsive landing page using frontend tools and frameworks",
-                    "Optimised for performance and SEO",
-                    "Integrated contact form or call-to-action buttons",
-                    "Mobile-first design with cross-browser compatibility",
-                    "One revision cycle included"
-                ]
-            },
-            {
-                "title": "Business Website (Multi-Page)",
-                "price": 550,
-                "description": "A professionally built, multi-page website for your business. Includes core pages like Home, About, Services, and Contact with a modern layout and responsive design.",
-                "audience": "Small to medium-sized businesses looking to establish a professional online presence.",
-                "features": [
-                    "If applicable, Website Design services will be provided",
-                    "Up to 5 pages with modern, responsive layout",
-                    "Contact form with email integration",
-                    "Optimised for performance and SEO",
-                    "Deployed to your hosting provider of choice",
-                    "Two feedback rounds for content and layout adjustments"
                 ]
             }
         ]
