@@ -77,10 +77,8 @@ const Navigation = ({
       <div className="align-elements mx-auto flex items-center justify-between">
         {/* Desktop Menu */}
         <nav className="hidden lg:flex  w-full">
-          
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
-            
             <Link href={logo.url} className="flex items-center gap-2">
               <img src={logo.src} className="max-h-8" alt={logo.alt} />
             </Link>
