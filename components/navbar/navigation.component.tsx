@@ -72,6 +72,9 @@ const Navigation = ({
     },
   ],
 }: Navbar1Props) => {
+
+
+
   return (
     <section className="py-2  w-full">
       <div className="align-elements mx-auto flex items-center justify-between">
