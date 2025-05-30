@@ -24,14 +24,9 @@ const Navbar: React.FC = () => {
   }, []);
   return (
     <header
-      className={`px-5 fixed py-3 w-full font-work-sans mix-blend-difference bg-black/80 backdrop-blur-sm z-50 transition-transform duration-300 ${
+      className={`px-5 fixed py-3 w-full font-work-sans bg-black z-50 transition-transform duration-300 ${
         isScrolled ? "-translate-y-full" : "translate-y-0"
       }`}
-      style={{
-        backgroundColor: "rgba(0,0,0,0.8)",
-        WebkitBackdropFilter: "blur(10px)",
-        backdropFilter: "blur(10px)",
-      }}
     >
       <nav className="flex justify-between items-center align-element ">
         <Navigation />
