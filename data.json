@@ -18,7 +18,7 @@
             {
                 "id": 2,
                 "title": "Promo Builder",
-                "price": 165,
+                "price": 285,
                 "description": "A sharp, brand-focused promotional video to market your training program, coaching business, or sports initiative. Perfect for social media and websites.",
                 "audience": "Coaches, trainers, and sports entrepreneurs looking to increase visibility and sign-ups.",
                 "features": [
@@ -34,7 +34,7 @@
             {
                 "id": 3,
                 "title": "Event Recap",
-                "price": 250,
+                "price": 350,
                 "description": "Comprehensive, high-energy recap video of your sports event or training day. Show the atmosphere, key moments, and the community in action.",
                 "audience": "Event organisers, clubs, or teams who want to promote, recap, or document their sports events.",
                 "features": [
@@ -50,7 +50,7 @@
             {
                 "id": 4,
                 "title": "Edit-Only Package",
-                "price": 50,
+                "price": 75,
                 "description": "Already have footage? I'll professionally edit and enhance it with cinematic Colour grading, music, transitions, and graphics to create a polished final video.",
                 "audience": "Athletes, coaches, or content creators with raw clips who need a pro finish.",
                 "features": [
@@ -79,7 +79,7 @@
             {
                 "id": 6,
                 "title": "Product Demo Video",
-                "price": 150,
+                "price": 250,
                 "description": "A concise and clear demonstration of your product in action. This video highlights key features and benefits to engage potential customers and showcase your product's value.",
                 "audience": "Brands and companies looking to introduce their product to customers or provide clear instructions for usage.",
                 "features": [

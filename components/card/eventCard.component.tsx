@@ -9,13 +9,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { EventProps } from "@/types/types";
+import { EventProps, PackageType } from "@/types/types";
 
 const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const getCurrentPrice = (pkg: any) => {
+  const getCurrentPrice = (pkg: PackageType) => {
     return pkg.priceDiscount ?? pkg.price;
   };
 

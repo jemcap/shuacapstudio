@@ -7,19 +7,18 @@ import ServiceCard from "../card/serviceCard.component";
 import { v4 as uuidv4 } from "uuid";
 import ServiceToggle from "../toggle/service-switch.component";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.15,
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.25, 0.46, 0.45, 0.94]
     },
-  }),
+  },
 };
 
 const ServiceComponent = () => {
@@ -43,10 +42,12 @@ const ServiceComponent = () => {
           <motion.div
             key={uuidv4()}
             className="h-full"
-            custom={idx}
             initial="hidden"
             animate="visible"
             variants={cardVariants}
+            transition={{
+              delay: idx * 0.15,
+            }}
           >
             <ServiceCard {...card} />
           </motion.div>

@@ -7,14 +7,13 @@ import VideoInfo from "./videoinfo.component";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { setVideos, setSelected } from "@/redux/features/video/videoSlice";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Video } from "@/types/types";
 
 export default function VideoGallery() {
   const dispatch = useDispatch();
   const videos = useSelector((state: RootState) => state.video.videos);
   const selected = useSelector((state: RootState) => state.video.selected);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -36,32 +35,29 @@ export default function VideoGallery() {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      setIsLoading(true);
       try {
-        const response = await axios.get("/api/videos");
+        const response = await axios.get<Video[]>("/api/videos");
         const filteredVideos = response.data.filter(
-          (v: any) => v.title !== "shuacapstudio"
+          (v: Video) => v.title !== "shuacapstudio"
         );
         dispatch(setVideos(response.data));
 
         const defaultVideo = response.data.find(
-          (v: any) => v.title === "shuacapstudio"
+          (v: Video) => v.title === "shuacapstudio"
         );
 
         dispatch(
           setSelected(
-            defaultVideo ? defaultVideo.s3Key : response.data[0]?.s3Key || null
+            defaultVideo ? defaultVideo.s3Key : response.data[0]?.s3Key || ""
           )
         );
 
         if (defaultVideo) {
           const index = filteredVideos.findIndex(
-            (v: any) => v.s3Key === defaultVideo.s3Key
+            (v: Video) => v.s3Key === defaultVideo.s3Key
           );
           if (index !== -1) setCurrentIndex(index);
         }
-
-        setIsLoading(false);
       } catch (error) {
         if (error instanceof Error) {
           console.error(error.message);
@@ -70,8 +66,6 @@ export default function VideoGallery() {
           console.error(error);
           throw new Error("An unknown error occurred");
         }
-      } finally {
-        setIsLoading(false);
       }
     };
     fetchVideo();
@@ -121,28 +115,22 @@ export default function VideoGallery() {
 
   return (
     <>
-      {isLoading ? (
-        <div className="flex flex-col justify-center items-center space-y-3 h-screen">
-          <Skeleton className="h-1/2 w-1/2 rounded-xl" />
-        </div>
-      ) : (
-        <>
-          <section className="relative w-full h-screen -z-10">
-            {selectedVideo && (
-              <video
-                key={selectedVideo._id}
-                autoPlay
-                loop
-                muted
-                className="w-full h-full object-cover"
-                controls={false}
-                playsInline
-                webkit-playsinline="true"
-              >
-                <source src={selectedVideo.url} type="video/mp4" />
-              </video>
-            )}
-          </section>
+      <section className="relative w-full h-screen -z-10">
+        {selectedVideo && (
+          <video
+            key={selectedVideo._id}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+            controls={false}
+            playsInline
+            webkit-playsinline="true"
+          >
+            <source src={selectedVideo.url} type="video/mp4" />
+          </video>
+        )}
+      </section>
 
           {isMobile ? (
             <section
@@ -237,8 +225,6 @@ export default function VideoGallery() {
               </ul>
             </section>
           )}
-        </>
-      )}
 
       <style jsx>{`
         @keyframes fadeIn {

@@ -7,23 +7,17 @@ const AboutMe = () => {
       <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
         <div className="lg:border-r-2 lg:pr-10 max-w-xl text-left">
           <h1 className="text-4xl font-bold mb-4">Shuacap Studio</h1>
-          <p className="text-lg leading-relaxed text-gray-700">
-            Welcome to Shuacap Studio — a creative hub where technology meets
-            storytelling. I'm a multidisciplinary developer and media artist
-            with a passion for crafting immersive digital experiences. From
-            building dynamic websites and web apps to directing engaging video
-            content, my work blends design, development, and visual storytelling
-            into cohesive and impactful experiences. I specialise in capturing
-            emotion and narrative through compelling visuals and engaging
-            cinematic techniques.
-          </p>
-          <p className="mt-4 text-lg text-gray-600">
-            Whether I'm developing interactive installations, launching bespoke
-            web-based platforms, or collaborating on commercial and artistic
-            projects, I bring technical expertise and creative vision to every
-            step—helping businesses stand out, engage their audiences, and
-            elevate their brand.
-          </p>
+            <p className="text-lg leading-relaxed text-gray-700">
+            I'm Josh, owner of Shuacap Studio — a digital marketing business specialising in sports media. 
+            As a sports enthusiast and current powerlifter with prior experience across a range of sports, 
+            I bring authentic passion and understanding to every project. My mission is to help businesses scale through immersive content and cutting-edge digital solutions. 
+            I combine technical expertise with creative storytelling to deliver engaging video content 
+            and digital experiences that capture your audience's attention.
+            </p>
+            <p className="mt-4 text-lg text-gray-600">
+            From sports highlights to commercial campaigns, I create content that drives engagement 
+            and helps your brand stand out in today's competitive market.
+            </p>
         </div>
         <div>
           <Image

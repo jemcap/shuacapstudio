@@ -8,8 +8,6 @@ import ReduxProvider from "@/components/reduxprovider.component";
 import Footer from "@/components/footer/footer.component";
 
 import { ToastContainer } from "react-toastify";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 const workSans = localFont({
   variable: "--font-work-sans",
@@ -78,7 +76,7 @@ export default function RootLayout({
       <body className={workSans.variable}>
         <ReduxProvider>
           <Navbar />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
+          {children}
           <ToastContainer
             position="top-center"
             autoClose={3000}
@@ -86,7 +84,7 @@ export default function RootLayout({
             newestOnTop={false}
           />
           <Analytics />
-          
+
           <Footer />
         </ReduxProvider>
       </body>
