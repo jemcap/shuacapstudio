@@ -4,7 +4,8 @@ import Navbar from "@/components/navbar/navbar.component";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 
-import ReduxProvider from "@/components/reduxprovider.component";
+// import ReduxProvider from "@/components/reduxprovider.component";
+import QueryProvider from "@/components/query-provider.component";
 import Footer from "@/components/footer/footer.component";
 
 import { ToastContainer } from "react-toastify";
@@ -74,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={workSans.variable}>
-        <ReduxProvider>
+        <QueryProvider>
           <Navbar />
           {children}
           <ToastContainer
@@ -86,7 +87,7 @@ export default function RootLayout({
           <Analytics />
 
           <Footer />
-        </ReduxProvider>
+        </QueryProvider>
       </body>
     </html>
   );

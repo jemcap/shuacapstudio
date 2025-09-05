@@ -1,22 +1,22 @@
 "use client";
 
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { Video } from "@/types/types";
 
-// interface VideoProps {
-//   key: string;
-//   url: string;
-//   title: string;
-//   location?: string;
-// }
+interface VideoInfoProps {
+  selectedVideo?: Video;
+  onVideoSelect?: (s3Key: string) => void;
+  videos?: Video[];
+}
 
-const VideoInfo = () => {
-  const video = useSelector((state: RootState) => state.video.videos);
-  const selected = useSelector((state: RootState) => state.video.selected);
-
-  const selectedVideo = video.find((v) => v.s3Key === selected);
-
+const VideoInfo = ({
+  selectedVideo,
+  onVideoSelect, // Future use - video selection callback
+  videos, // Future use - all available videos
+}: VideoInfoProps) => {
+  // Explicitly acknowledge unused params to avoid TypeScript warnings
+  void onVideoSelect;
+  void videos;
   const vid = selectedVideo || null;
   if (!vid || vid.title === "shuacapstudio") return null;
   return (
