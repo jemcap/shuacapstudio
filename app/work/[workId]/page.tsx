@@ -31,6 +31,7 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
             loop
             controlsList="nodownload"
             className="w-full h-[1050px] object-cover"
+            preload="metadata"
           >
             <source src={content.url} type="video/mp4" />
           </video>

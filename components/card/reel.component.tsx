@@ -32,6 +32,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
                   src={content.url}
                   alt={content.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
               <div className="mt-4 px-1">

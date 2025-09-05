@@ -126,6 +126,7 @@ export default function VideoGallery() {
             controls={false}
             playsInline
             webkit-playsinline="true"
+            preload="none"
           >
             <source src={selectedVideo.url} type="video/mp4" />
           </video>

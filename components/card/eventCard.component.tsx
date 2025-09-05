@@ -61,7 +61,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
                 </small>
               ))}
             </div>
-            <img src={url} alt={title} className="object-cover w-full h-full" />
+            <img src={url} alt={title} className="object-cover w-full h-full" loading="lazy" />
           </div>
           <CardHeader className="pb-5">
             <CardTitle className="text-lg lg:text-xl text-start">
@@ -100,6 +100,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
             src={url}
             alt={title}
             className="absolute inset-0 object-cover w-full h-full"
+            loading="lazy"
           />
         </div>
         <DialogHeader>

@@ -37,15 +37,9 @@ const EventComponent = () => {
     : "";
 
   if (isLoading) {
-    // Skeleton grid matching your layout
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 py-10">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="animate-pulse bg-gray-200 rounded-xl h-80 w-full"
-          />
-        ))}
+      <div className="flex items-center justify-center py-20">
+        <div className="text-lg text-gray-600">Loading...</div>
       </div>
     );
   }

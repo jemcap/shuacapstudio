@@ -83,7 +83,7 @@ const Navigation = ({
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8" alt={logo.alt} />
+              <img src={logo.src} className="max-h-8" alt={logo.alt} loading="eager" />
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
@@ -101,7 +101,7 @@ const Navigation = ({
             {/* Logo */}
             <div></div>
             <Link href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="max-h-8" alt={logo.alt} />
+              <img src={logo.src} className="max-h-8" alt={logo.alt} loading="eager" />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
