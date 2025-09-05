@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Navigation from "./navigation.component";
-import { current } from "@reduxjs/toolkit";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
