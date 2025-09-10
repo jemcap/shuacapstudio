@@ -14,11 +14,10 @@ import { Menu, X } from "lucide-react";
 
 export function NavigationList() {
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/work", label: "Work" },
-    { href: "/products", label: "Products" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "/work", label: "PROJECTS" },
+    { href: "/products", label: "PRODUCTS" },
+    { href: "/services", label: "SERVICES" },
+    { href: "/contact", label: "CONTACT" },
   ];
 
   const [open, setOpen] = React.useState(false);

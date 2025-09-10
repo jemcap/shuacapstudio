@@ -27,7 +27,7 @@ const Navbar = () => {
         isScrolled ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <nav className="flex justify-between items-center align-element ">
+      <nav className=" align-element ">
         <Navigation />
       </nav>
     </header>
