@@ -1,3 +1,6 @@
+import { title } from "process";
+import { validation } from "sanity";
+
 export default {
   name: "event",
   title: "Event",
@@ -18,11 +21,33 @@ export default {
         layout: "tags",
       },
     },
+    // {
+    //   name: "s3Key",
+    //   title: "S3 Key",
+    //   type: "string",
+    //   description: "The filename or key of the video in your S3 bucket",
+    // },
     {
-      name: "s3Key",
-      title: "S3 Key",
-      type: "string",
-      description: "The filename or key of the video in your S3 bucket",
+      name: "coverImage",
+      title: "Cover Image",
+      type: "image",
+      description: "The cover image for the event",
+      options: {
+        hotspot: true,
+        accept: "image/png, image/jpeg",
+        storeOriginalFilename: true,
+      },
+      validation: (Rule) => Rule.required(),
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+          validation: (Rule) => Rule.required(),
+        },
+        { name: "caption", type: "string", title: "Caption" },
+      ],
     },
     {
       name: "packages",

@@ -1,41 +1,57 @@
 export type Video = {
-    _id: string;
-    title: string;
-    url: string;
-    location?: string;
-    year: string;
-    host?: string;
-    s3Key: string;
-    description: string;
-}
+  _id: string;
+  title: string;
+  url: string;
+  location?: string;
+  year: string;
+  host?: string;
+  s3Key: string;
+  description: string;
+};
 
 export type Event = {
-    _id: string;
-    title: string;
-    location?: string;
-    tag: string[];
-    s3Key: string;
-}
+  _id: string;
+  title: string;
+  location?: string;
+  tag: string[];
+  // s3Key: string;
+  coverImage: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+    caption?: string;
+  };
+};
 
 export type PackageType = {
-    name: string;
-    description: string;
-    price: number;
-    priceDiscount?: number
-    earlyBirdPrice?: number;
-    earlyBirdStart?: number | Date;
-    earlyBirdEnd?: number | Date;
-    _key: string;
-  };
-  
+  name: string;
+  description: string;
+  price: number;
+  priceDiscount?: number;
+  earlyBirdPrice?: number;
+  earlyBirdStart?: number | Date;
+  earlyBirdEnd?: number | Date;
+  _key: string;
+};
+
 export type EventProps = {
-    _id: string;
-    title: string;
-    location: string;
-    tag: string[];
-    url: string;
-    packages: PackageType[];
+  _id: string;
+  title: string;
+  location: string;
+  tag: string[];
+  // url: string;
+  coverImage: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+    caption?: string;
   };
+  packages: PackageType[];
+};
 
 export type FilmProps = {
   _id: string;
@@ -44,7 +60,7 @@ export type FilmProps = {
   host: string;
   s3Key: string;
   url: string;
-}
+};
 export type WorkReelProps = {
   _id: string;
   title: string;
@@ -54,8 +70,7 @@ export type WorkReelProps = {
   link?: string;
   s3Key: string;
   url: string;
-}
-
+};
 
 export type ServiceProps = {
   title: string;
@@ -63,4 +78,4 @@ export type ServiceProps = {
   audience: string;
   description: string;
   features: string[];
-}
+};

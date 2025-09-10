@@ -11,9 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { EventProps, PackageType } from "@/types/types";
 
-const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
+const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const thumbnailUrl = coverImage?.asset?.url;
 
   const getCurrentPrice = (pkg: PackageType) => {
     return pkg.priceDiscount ?? pkg.price;
@@ -61,7 +63,12 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
                 </small>
               ))}
             </div>
-            <img src={url} alt={title} className="object-cover w-full h-full" loading="lazy" />
+            <img
+              src={thumbnailUrl}
+              alt={title}
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
           </div>
           <CardHeader className="pb-5">
             <CardTitle className="text-lg lg:text-xl text-start">
@@ -97,7 +104,7 @@ const EventCard: React.FC<EventProps> = ({ title, url, tag, packages }) => {
       <DialogContent className="max-h-[90vh] overflow-y-auto">
         <div className="relative w-full h-40">
           <img
-            src={url}
+            src={thumbnailUrl}
             alt={title}
             className="absolute inset-0 object-cover w-full h-full"
             loading="lazy"
