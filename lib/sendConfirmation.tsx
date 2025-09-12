@@ -113,7 +113,7 @@ export async function sendConfirmationEmail(email: string, formLink: string) {
 
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
+      from: `"SHUACAP STUDIO" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Your SHUACAP STUDIO Purchase Confirmation",
       html: htmlContent,
