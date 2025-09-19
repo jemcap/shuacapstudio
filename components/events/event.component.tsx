@@ -45,22 +45,30 @@ const EventComponent = () => {
   }
 
   return (
-    <div className="h-full">
-      {event.length === 0 && (
-        <div className="flex flex-col items-center justify-center py-10">
-          <h1 className="text-2xl font-bold mb-2 text-center">
-            We'll be back with more products soon!
-          </h1>
-          <p className="text-gray-600">Thanks for your patience.</p>
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {event.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-20">
+            <h1 className="text-2xl font-bold mb-2 text-center">
+              We'll be back with more products soon!
+            </h1>
+            <p className="text-gray-600">Thanks for your patience.</p>
+          </div>
+        )}
+        
+        {videoPackages && (
+          <div className="mb-8">
+            <h1 className="text-lg font-semibold border-t-2 pt-4">
+              {formattedName}
+            </h1>
+          </div>
+        )}
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">
+          {event.map((ev) => (
+            <EventCard {...ev} key={ev._id} />
+          ))}
         </div>
-      )}
-      {videoPackages && (
-        <h1 className="text-lg font-semibold border-t-2">{formattedName}</h1>
-      )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {event.map((ev) => (
-          <EventCard {...ev} key={ev._id} />
-        ))}
       </div>
     </div>
   );

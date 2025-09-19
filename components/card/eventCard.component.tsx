@@ -50,14 +50,14 @@ const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out">
-        <Card className="w-full h-auto overflow-hidden border-2 mt-2 rounded-none">
-          <div className="relative w-full h-32 md:h-80">
-            <div className="absolute bottom-5 left-5 flex flex-row gap-2">
+      <DialogTrigger className="cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out w-full">
+        <Card className="w-full h-full overflow-hidden border-2 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div className="relative w-full h-48 sm:h-56 md:h-64">
+            <div className="absolute bottom-3 left-3 flex flex-row gap-2 z-10">
               {tag.map((t, idx) => (
                 <small
                   key={idx}
-                  className="text-white bg-black-200/40 backdrop-blur-xl py-1 px-4 rounded-full text-center"
+                  className="text-white bg-black/60 backdrop-blur-sm py-1 px-3 rounded-full text-xs font-medium"
                 >
                   {t}
                 </small>
@@ -70,12 +70,12 @@ const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
               loading="lazy"
             />
           </div>
-          <CardHeader className="pb-5">
-            <CardTitle className="text-lg lg:text-xl text-start">
-              <h1>{title}</h1>
-              <p className="text-gray-500 text-sm">
+          <CardHeader className="p-4 pb-6">
+            <CardTitle className="text-base sm:text-lg text-start">
+              <h1 className="line-clamp-2 mb-2">{title}</h1>
+              <p className="text-gray-500 text-sm font-normal">
                 from £
-                <span>
+                <span className="font-semibold">
                   {(() => {
                     const sorted = [...packages].sort((a, b) => {
                       const aPrice = getCurrentPrice(a);
@@ -86,7 +86,7 @@ const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
                     return price.priceDiscount ? (
                       <>
                         {price.priceDiscount}{" "}
-                        <span className="line-through text-gray-300">
+                        <span className="line-through text-gray-400 font-normal">
                           £{price.price}
                         </span>
                       </>
