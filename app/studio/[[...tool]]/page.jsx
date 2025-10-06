@@ -11,13 +11,17 @@ import { NextStudio } from "next-sanity/studio";
 import config from "../../../sanity.config";
 import { redirect } from "next/navigation";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export { metadata, viewport } from "next-sanity/studio";
 
 export default function StudioPage() {
-  if (process.env.NODE_ENV === "production") {
+  // Allow studio in production if explicitly enabled
+  const studioEnabled = process.env.NEXT_PUBLIC_SANITY_STUDIO_ENABLED === 'true' || process.env.NODE_ENV !== "production";
+  
+  if (!studioEnabled) {
     return null;
   }
+  
   return <NextStudio config={config} />;
 }

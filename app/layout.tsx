@@ -60,9 +60,9 @@ const workSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SHUACAP STUDIO",
+  title: "shuacapstudio",
   description:
-    "Shuacap Studio offers professional sports videography, content creation, and web design and development services. View portfolio work and book online through our integrated client inquiry system.",
+    "shuacapstudio is a digital marketing and creative studio that helps small businesses scale by offering web development and videography services. From building high-converting websites to producing engaging video content, I create the tools and strategies that drive leads, growth, and brand visibility.",
 };
 
 export default function RootLayout({

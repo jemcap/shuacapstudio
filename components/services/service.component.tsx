@@ -2,11 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-import serviceCardData from "@/data.json";
-import ServiceCard from "../card/serviceCard.component";
-import { v4 as uuidv4 } from "uuid";
-import ServiceToggle from "../toggle/service-switch.component";
-
 import { motion, Variants } from "framer-motion";
 
 const cardVariants: Variants = {
@@ -22,7 +17,6 @@ const cardVariants: Variants = {
 };
 
 const ServiceComponent = () => {
-  const [selectedCategory, setSelectedCategory] = useState("videography");
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
@@ -78,7 +72,7 @@ const ServiceComponent = () => {
     <div className="min-h-screen">
       <section className="relative w-full h-[60vh] lg:h-[70vh] mb-16">
         <img
-          src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudiologo.png"
+          src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudio_banner.png"
           alt="Shuacap Studio logo"
           className="w-screen h-full object-cover"
           loading="lazy"

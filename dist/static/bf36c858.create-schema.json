@@ -1,0 +1,197 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "name": "year",
+        "type": "string",
+        "title": "Year of Production"
+      },
+      {
+        "name": "host",
+        "type": "string"
+      },
+      {
+        "description": "The filename or key of the video in your S3 bucket",
+        "name": "s3Key",
+        "type": "string",
+        "title": "S3 Key"
+      }
+    ],
+    "name": "video",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tag",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true,
+          "accept": "image/png, image/jpeg",
+          "storeOriginalFilename": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The cover image for the event",
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Important for SEO and accessibility.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "name": "coverImage",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "price",
+                "type": "number"
+              },
+              {
+                "name": "priceDiscount",
+                "type": "number"
+              },
+              {
+                "name": "earlyBirdPrice",
+                "type": "number"
+              },
+              {
+                "name": "earlyBirdStart",
+                "type": "datetime"
+              },
+              {
+                "name": "earlyBirdEnd",
+                "type": "datetime"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "packages",
+        "type": "array"
+      }
+    ],
+    "name": "event",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "host",
+        "type": "string"
+      },
+      {
+        "description": "The filename or key of the video in your S3 bucket",
+        "name": "s3Key",
+        "type": "string",
+        "title": "S3 Key"
+      }
+    ],
+    "name": "film",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "client",
+        "type": "string"
+      },
+      {
+        "name": "link",
+        "type": "string",
+        "title": "Link / URL"
+      },
+      {
+        "description": "The filename or key of the video in your S3 bucket",
+        "name": "s3Key",
+        "type": "string",
+        "title": "S3 Key"
+      }
+    ],
+    "name": "website",
+    "type": "document"
+  }
+]
