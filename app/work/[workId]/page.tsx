@@ -30,7 +30,7 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
             muted
             loop
             controlsList="nodownload"
-            className="w-full h-[1050px] object-cover"
+            className="w-full h-[90vh] object-contain bg-black"
             preload="metadata"
           >
             <source src={content.url} type="video/mp4" />
