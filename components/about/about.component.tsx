@@ -40,26 +40,33 @@ const AboutMe = () => {
             deserves.
           </p>
           <p className="mt-4 text-lg text-gray-700">
-            Whether you're an athlete, coach, or growing sports brand, let's
-            collaborate to elevate your brand through the power of authentic
-            storytelling and innovative digital solutions.
+            Let's collaborate to elevate your brand through the power of
+            authentic storytelling and innovative digital solutions.
           </p>
           <Dialog>
             <form>
               <DialogTrigger asChild className="mt-5 bg-orange-500">
-                <Button variant="outline" className="text-white text-md font-bold px-10 py-5 max-md:w-full">Get in Touch</Button>
+                <Button
+                  variant="outline"
+                  className="text-white text-md font-bold px-10 py-5 max-md:w-full"
+                >
+                  Get in Touch
+                </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle>Let's Work!</DialogTitle>
                   <DialogDescription>
-                    Please fill out the form below, and I'll get back to you as soon as I can!
+                    Please fill out the form below, and I'll get back to you as
+                    soon as I can!
                   </DialogDescription>
                 </DialogHeader>
                 <ContactForm />
                 <DialogFooter>
                   <DialogClose asChild>
-                    <Button variant="outline" className="w-full">Cancel</Button>
+                    <Button variant="outline" className="w-full">
+                      Cancel
+                    </Button>
                   </DialogClose>
                 </DialogFooter>
               </DialogContent>

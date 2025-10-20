@@ -9,9 +9,19 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
   const { workId } = await params;
   const decodedTitle = decodeURIComponent(workId);
 
-  const content = await prisma.workReel.findUnique({
-    where: { title: decodedTitle },
-  });
+  let content;
+  try {
+    content = await prisma.workReel.findUnique({
+      where: { title: decodedTitle },
+    });
+  } catch (error) {
+    console.error("Database query error:", error);
+    return (
+      <div className="h-full flex items-center justify-center">
+        <p className="text-xl">Error loading content. Please try again.</p>
+      </div>
+    );
+  }
 
   if (!content) {
     return (
