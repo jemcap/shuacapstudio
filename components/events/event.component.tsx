@@ -45,8 +45,8 @@ const EventComponent = () => {
   }
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen pb-8 align-element">
+      <div>
         {event.length === 0 && (
           <div className="flex flex-col items-center justify-center py-20">
             <h1 className="text-2xl font-bold mb-2 text-center">
@@ -57,8 +57,8 @@ const EventComponent = () => {
         )}
         
         {videoPackages && (
-          <div className="mb-8">
-            <h1 className="text-lg font-semibold border-t-2 pt-4">
+          <div>
+            <h1 className="text-2xl font-bold">
               {formattedName}
             </h1>
           </div>

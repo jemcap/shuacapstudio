@@ -140,7 +140,7 @@ const ServiceComponent = () => {
       </section>
 
       {/* About Services Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div 
           className="text-left"
           initial={{ opacity: 0, y: 30 }}
@@ -162,7 +162,7 @@ const ServiceComponent = () => {
       </section>
 
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div 
           className="text-left mb-16"
           initial={{ opacity: 0, y: 30 }}

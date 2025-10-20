@@ -19,7 +19,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
   };
 
   return (
-    <section className="align-element py-16">
+    <section className="align-element">
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
         {info.map((content, index) => {
           const href = `/work/${content.title}`;
@@ -27,7 +27,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
 
           const CardInner = (
             <div className="group cursor-pointer break-inside-avoid mb-6">
-              <div className={`w-full overflow-hidden rounded-lg bg-black ${itemHeight}`}>
+              <div className={`w-full overflow-hidden  bg-black ${itemHeight}`}>
                 <img
                   src={content.url}
                   alt={content.title}
@@ -46,7 +46,7 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
                     {content.client}
                   </span>
                 )}
-                <h2 className="text-sm font-semibold leading-tight hover:text-gray-600 transition-colors">
+                <h2 className="text-xl font-semibold leading-tight hover:text-gray-600 transition-colors">
                   {content.title}
                 </h2>
               </div>
