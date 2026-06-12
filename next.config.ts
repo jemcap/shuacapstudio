@@ -3,6 +3,22 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   eslint: { ignoreDuringBuilds: true },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dbn22rsu5mgq3.cloudfront.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'shuacapstudio-assets.s3.eu-west-2.amazonaws.com',
+      },
+    ],
+  },
   
   // Security headers
   async headers() {

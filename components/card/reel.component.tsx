@@ -1,6 +1,7 @@
 "use client";
 
 import { WorkReelProps } from "@/types/types";
+import Image from "next/image";
 import Link from "next/link";
 
 const Reel = ({ info }: { info: WorkReelProps[] }) => {
@@ -27,12 +28,13 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
 
           const CardInner = (
             <div className="group cursor-pointer break-inside-avoid mb-6">
-              <div className={`w-full overflow-hidden  bg-black ${itemHeight}`}>
-                <img
+              <div className={`relative w-full overflow-hidden bg-black ${itemHeight}`}>
+                <Image
                   src={content.url}
                   alt={content.title}
+                  fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
                 />
               </div>
               <div className="mt-4 px-1">

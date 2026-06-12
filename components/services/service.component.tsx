@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
@@ -59,11 +60,13 @@ const ServiceComponent = () => {
   return (
     <div className="min-h-screen">
       <section className="relative w-full h-[60vh] lg:h-[70vh] mb-16">
-        <img
-          src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudio_banner.png"
+        <Image
+          src="https://dbn22rsu5mgq3.cloudfront.net/shuacapstudio_banner.png"
           alt="Shuacap Studio logo"
-          className="w-screen h-full object-cover"
-          loading="lazy"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
         />
         
         <motion.div

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
@@ -63,11 +64,12 @@ const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
                 </small>
               ))}
             </div>
-            <img
+            <Image
               src={thumbnailUrl}
               alt={title}
+              fill
+              sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover w-full h-full"
-              loading="lazy"
             />
           </div>
           <CardHeader className="p-4 pb-6">
@@ -103,11 +105,12 @@ const EventCard = ({ title, coverImage, tag, packages }: EventProps) => {
 
       <DialogContent className="max-h-[90vh] overflow-y-auto">
         <div className="relative w-full h-40">
-          <img
+          <Image
             src={thumbnailUrl}
             alt={title}
+            fill
+            sizes="min(90vw, 512px)"
             className="absolute inset-0 object-cover w-full h-full"
-            loading="lazy"
           />
         </div>
         <DialogHeader>

@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Accordion,
@@ -89,11 +90,13 @@ const Navigation = ({
 
 const Logo = ({ logo }: { logo: NavigationProps['logo'] }) => (
   <Link href={logo!.url} className="flex items-center gap-2">
-    <img 
-      src={logo!.src} 
-      className="max-h-3" 
-      alt={logo!.alt} 
-      loading="eager" 
+    <Image
+      src={logo!.src}
+      width={128}
+      height={12}
+      className="h-3 w-auto"
+      alt={logo!.alt}
+      priority
     />
   </Link>
 );
