@@ -65,12 +65,6 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
                     <h1 className="text-3xl font-bold">{content.year}</h1>
                   </div>
                 )}
-                {content.type && (
-                  <div>
-                    <p className="text-gray-400  text-xl">Type</p>
-                    <h1 className="text-3xl font-bold">{content.type}</h1>
-                  </div>
-                )}
                 {content.link && (
                   <a
                     href={content.link}
