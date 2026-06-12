@@ -1,9 +1,11 @@
-import * as React from "react";
-
 import Films from "@/components/work/films/films.component";
-import Websites from "@/components/work/websites/websites.component";
+import { getWorkListings } from "@/lib/work";
 
-const Work = () => {
+export const revalidate = 60;
+
+const Work = async () => {
+  const films = await getWorkListings("film");
+
   return (
     <div className="h-full mb-20 pt-28">
       <div className="flex gap-12 flex-col ">
@@ -11,7 +13,7 @@ const Work = () => {
 
             <h1 className="text-2xl font-bold mx-3">FILMS</h1>
 
-          <Films />
+          <Films films={films} />
         </section>
         {/* <section className="align-element w-full">
           <div className="flex-start flex space-y-10 border-t-2 ">

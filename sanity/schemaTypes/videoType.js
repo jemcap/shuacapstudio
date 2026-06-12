@@ -7,6 +7,17 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
@@ -29,10 +40,34 @@ export default {
       type: "string",
     },
     {
+      name: "thumbnail",
+      title: "Thumbnail",
+      type: "image",
+      description: "Lightweight work thumbnail or still image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+      fields: [
+        {
+          name: "alt",
+          title: "Alternative text",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    },
+    {
       name: "s3Key",
       title: "S3 Key",
       type: "string",
-      description: "The filename or key of the video in your S3 bucket",
+      description: "The filename or key of the video file in your S3 bucket",
+    },
+    {
+      name: "link",
+      title: "External Link",
+      type: "url",
+      description: "Optional external video page when this item is not hosted on S3/CloudFront",
     },
   ],
 };

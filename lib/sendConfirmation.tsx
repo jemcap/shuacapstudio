@@ -66,7 +66,7 @@ export async function sendConfirmationEmail(email: string, formLink: string) {
             <!-- Header / Logo -->
             <tr>
               <td align="center" style="padding:20px;">
-                <img src="https://shuacapstudio-assets.s3.eu-west-2.amazonaws.com/shuacapstudiologo.png"
+                <img src="https://www.shuacapstudio.com/shuacapstudio-logo.png"
                      width="250"
                      alt="Shuacap Studio Logo"
                      style="display:block;"/>

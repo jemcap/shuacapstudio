@@ -14,7 +14,6 @@ export type Event = {
   title: string;
   location?: string;
   tag: string[];
-  // s3Key: string;
   coverImage: {
     asset: {
       _id: string;
@@ -41,7 +40,6 @@ export type EventProps = {
   title: string;
   location: string;
   tag: string[];
-  // url: string;
   coverImage: {
     asset: {
       _id: string;
@@ -53,23 +51,28 @@ export type EventProps = {
   packages: PackageType[];
 };
 
-export type FilmProps = {
-  _id: string;
-  title: string;
-  description: string;
-  host: string;
-  s3Key: string;
+export type WorkType = "film" | "video" | "website";
+
+export type WorkThumbnail = {
   url: string;
+  alt: string;
 };
+
 export type WorkReelProps = {
   _id: string;
+  type?: WorkType;
   title: string;
-  description: string;
+  slug: string;
+  description?: string;
   host?: string;
   client?: string;
+  location?: string;
+  year?: string;
   link?: string;
-  s3Key: string;
-  url: string;
+  s3Key?: string;
+  thumbnail?: WorkThumbnail;
+  videoUrl?: string;
+  url?: string;
 };
 
 export type ServiceProps = {

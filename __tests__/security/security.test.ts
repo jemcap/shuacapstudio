@@ -101,9 +101,7 @@ describe('Security Vulnerability Tests', () => {
     it('should detect missing authentication on API routes', () => {
       const routes = [
         '/api/events',
-        '/api/films',
-        '/api/videos',
-        '/api/websites'
+        '/api/videos'
       ];
       
       routes.forEach(route => {

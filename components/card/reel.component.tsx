@@ -23,15 +23,21 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
     <section className="align-element">
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
         {info.map((content, index) => {
-          const href = `/work/${content.title}`;
+          const href = `/work/${content.slug}`;
+          const imageSrc = content.thumbnail?.url ?? content.url;
+          const imageAlt = content.thumbnail?.alt ?? content.title;
           const itemHeight = getItemHeight(index);
+
+          if (!imageSrc) {
+            return null;
+          }
 
           const CardInner = (
             <div className="group cursor-pointer break-inside-avoid mb-6">
               <div className={`relative w-full overflow-hidden bg-black ${itemHeight}`}>
                 <Image
-                  src={content.url}
-                  alt={content.title}
+                  src={imageSrc}
+                  alt={imageAlt}
                   fill
                   sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

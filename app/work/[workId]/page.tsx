@@ -1,50 +1,38 @@
 import React from "react";
-import prisma from "@/lib/prisma";
+import { getWorkBySlug } from "@/lib/work";
+import { notFound } from "next/navigation";
 
 interface WorkIdPageProps {
   params: Promise<{ workId: string }>;
 }
 
+export const revalidate = 60;
+
 export default async function WorkIdPage({ params }: WorkIdPageProps) {
   const { workId } = await params;
-  const decodedTitle = decodeURIComponent(workId);
-
-  let content;
-  try {
-    content = await prisma.workReel.findUnique({
-      where: { title: decodedTitle },
-    });
-  } catch (error) {
-    console.error("Database query error:", error);
-    return (
-      <div className="h-full flex items-center justify-center">
-        <p className="text-xl">Error loading content. Please try again.</p>
-      </div>
-    );
-  }
+  const slug = decodeURIComponent(workId);
+  const content = await getWorkBySlug(slug);
 
   if (!content) {
-    return (
-      <div className="h-full flex items-center justify-center">
-        <p className="text-xl">Work not found</p>
-      </div>
-    );
+    notFound();
   }
 
   return (
     <div className="h-full">
       <div>
         <div className="space-y-4">
-          <video
-            controls
-            muted
-            loop
-            controlsList="nodownload"
-            className="w-full h-[90vh] object-contain bg-black"
-            preload="metadata"
-          >
-            <source src={content.url} type="video/mp4" />
-          </video>
+          {content.videoUrl && (
+            <video
+              controls
+              muted
+              loop
+              controlsList="nodownload"
+              className="w-full h-[90vh] object-contain bg-black"
+              preload="metadata"
+            >
+              <source src={content.videoUrl} type="video/mp4" />
+            </video>
+          )}
           <div className="h-full space-y-20 ">
             <div className="align-element py-10 space-y-20">
               <div className=" gap-10 lg:gap-20 grid grid-cols-1 lg:grid-cols-2 border-b-2 pb-20">
@@ -65,6 +53,18 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
                     <h1 className="text-3xl font-bold">{content.client}</h1>
                   </div>
                 )}
+                {content.location && (
+                  <div>
+                    <p className="text-gray-400  text-xl">Location</p>
+                    <h1 className="text-3xl font-bold">{content.location}</h1>
+                  </div>
+                )}
+                {content.year && (
+                  <div>
+                    <p className="text-gray-400  text-xl">Year</p>
+                    <h1 className="text-3xl font-bold">{content.year}</h1>
+                  </div>
+                )}
                 {content.type && (
                   <div>
                     <p className="text-gray-400  text-xl">Type</p>
@@ -78,14 +78,16 @@ export default async function WorkIdPage({ params }: WorkIdPageProps) {
                     rel="noopener noreferrer"
                     className="underline text-3xl font-bold"
                   >
-                    Watch on YouTube
+                    View Project
                   </a>
                 )}
               </div>
-              <section className="flex flex-col">
-                <p className="text-gray-400  text-xl">Description</p>
-                <h2 className="text-2xl mb-20">{content.description}</h2>
-              </section>
+              {content.description && (
+                <section className="flex flex-col">
+                  <p className="text-gray-400  text-xl">Description</p>
+                  <h2 className="text-2xl mb-20">{content.description}</h2>
+                </section>
+              )}
             </div>
           </div>
         </div>

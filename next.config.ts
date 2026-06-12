@@ -13,10 +13,6 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
-      {
-        protocol: 'https',
-        hostname: 'shuacapstudio-assets.s3.eu-west-2.amazonaws.com',
-      },
     ],
   },
   
