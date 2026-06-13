@@ -17,9 +17,9 @@ import ContactForm from "../form/contact.component";
 
 const AboutMe = () => {
   return (
-    <section className="align-element my-20">
-      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-        <div className="lg:border-r-2 lg:pr-10 max-w-xl text-left">
+    <section className="align-element">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-stretch min-h-[95vh] py-20">
+        <div className="flex-1 lg:border-r-2 lg:pr-10 flex flex-col justify-center text-left">
           <h1 className="text-4xl font-bold mb-4">
             Get Known. I&apos;ll Create the Content.
           </h1>
@@ -75,13 +75,12 @@ const AboutMe = () => {
             </form>
           </Dialog>
         </div>
-        <div>
+        <div className="flex-1 relative min-h-[300px]">
           <Image
-            src="/shuacap.jpg"
+            src="/me_work.png"
             alt="Portrait of Shuacap or studio setup"
-            width={500}
-            height={500}
-            className="rounded-2xl shadow-lg"
+            fill
+            className="object-cover rounded-2xl shadow-lg"
           />
         </div>
       </div>
