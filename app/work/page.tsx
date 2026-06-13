@@ -1,4 +1,4 @@
-import Films from "@/components/work/films/films.component";
+import Reel from "@/components/card/reel.component";
 import { getWorkListings } from "@/lib/work";
 
 export const revalidate = 60;
@@ -7,21 +7,16 @@ const Work = async () => {
   const films = await getWorkListings("film");
 
   return (
-    <div className="h-full mb-20 pt-28">
-      <div className="flex gap-12 flex-col ">
-        <section className="align-element w-full h-full">
+    <div className="w-full">
+      <section className="w-full px-8 pt-36">
+        <h1 className="text-black text-7xl sm:text-8xl lg:text-7xl  tracking-tight leading-none">
+          Films
+        </h1>
+      </section>
 
-            <h1 className="text-2xl font-bold mx-3">FILMS</h1>
-
-          <Films films={films} />
-        </section>
-        {/* <section className="align-element w-full">
-          <div className="flex-start flex space-y-10 border-t-2 ">
-            <h1 className="text-lg font-semibold mb-10">WEBSITES</h1>
-          </div>
-          <Websites />
-        </section> */}
-      </div>
+      <section className="w-full px-8">
+        <Reel info={films} />
+      </section>
     </div>
   );
 };
