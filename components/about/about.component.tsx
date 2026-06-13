@@ -75,7 +75,7 @@ const AboutMe = () => {
             </form>
           </Dialog>
         </div>
-        <div className="flex-1 relative min-h-[300px]">
+        <div className="flex-1 relative min-h-[500px]">
           <Image
             src="/me_work.png"
             alt="Portrait of Shuacap or studio setup"

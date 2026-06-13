@@ -9,7 +9,7 @@ const Work = async () => {
   return (
     <div className="w-full">
       <section className="w-full px-8 pt-36">
-        <h1 className="text-black text-7xl sm:text-8xl lg:text-7xl  tracking-tight leading-none">
+        <h1 className="text-black text-4xl lg:text-7xl tracking-tight leading-none">
           Films
         </h1>
       </section>
