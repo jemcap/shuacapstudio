@@ -2,10 +2,15 @@ import EventComponent from "@/components/events/event.component";
 
 const EventsPage = () => {
   return (
-    <div className="min-h-screen pt-28 pb-20">
-      <div className="align-element">
+    <div className="w-full">
+      <section className="w-full px-8 pt-36">
+        <h1 className="text-black text-7xl tracking-tight leading-none">
+          Products
+        </h1>
+      </section>
+      <section className="w-full px-8">
         <EventComponent />
-      </div>
+      </section>
     </div>
   );
 };

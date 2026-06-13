@@ -32,8 +32,7 @@ const EventComponent = () => {
     .find((pkg) => pkg.name.includes("Video"));
 
   const formattedName = videoPackages
-    ? videoPackages.name.toUpperCase().split(" ").slice(1).join(" ").trim() +
-      "S"
+    ? videoPackages.name.toUpperCase().trim() + "S"
     : "";
 
   if (isLoading) {
@@ -45,29 +44,28 @@ const EventComponent = () => {
   }
 
   return (
-    <div className="min-h-screen pb-8 align-element">
+    <div className="pb-8">
       <div>
         {event.length === 0 && (
           <div className="flex flex-col items-center justify-center py-20">
             <h1 className="text-2xl font-bold mb-2 text-center">
-              We'll be back with more products soon!
+              We&apos;ll be back with more products soon!
             </h1>
             <p className="text-gray-600">Thanks for your patience.</p>
           </div>
         )}
-        
-        {videoPackages && (
-          <div>
-            <h1 className="text-2xl font-bold">
-              {formattedName}
-            </h1>
+        <div className="pt-12">
+          {videoPackages && (
+            <div>
+              <h1 className="text-2xl font-bold">{formattedName}</h1>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">
+            {event.map((ev) => (
+              <EventCard {...ev} key={ev._id} />
+            ))}
           </div>
-        )}
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">
-          {event.map((ev) => (
-            <EventCard {...ev} key={ev._id} />
-          ))}
         </div>
       </div>
     </div>

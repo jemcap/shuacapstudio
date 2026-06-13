@@ -5,21 +5,8 @@ import { motion } from "framer-motion";
 const ServiceComponent = () => {
   return (
     <div className="w-full">
-      {/* Hero strip — full bleed dark */}
-      <section className="w-full bg-black px-8 lg:px-16 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-white text-7xl sm:text-8xl lg:text-[10rem] font-bold uppercase tracking-tight leading-none">
-            Services
-          </h1>
-        </motion.div>
-      </section>
-
       {/* Statement */}
-      <section className="w-full px-8 lg:px-16 py-20 border-b border-gray-200">
+      <section className="w-full px-8 py-20 border-b border-gray-200">
         <motion.p
           className="text-2xl sm:text-3xl font-light text-gray-900 max-w-3xl leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
@@ -32,7 +19,7 @@ const ServiceComponent = () => {
       </section>
 
       {/* Services list */}
-      <section className="w-full px-8 lg:px-16 py-16">
+      <section className="w-full px-8 py-16">
         <motion.p
           className="uppercase tracking-[0.25em] text-xs text-gray-400 mb-12"
           initial={{ opacity: 0 }}
