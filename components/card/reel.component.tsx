@@ -27,7 +27,10 @@ const Reel = ({ info }: { info: WorkReelProps[] }) => {
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500" />
             </div>
             <div className="mt-4">
-              <h2 className="text-base font-bold uppercase tracking-wide text-gray-900 leading-tight">
+              <h2 className="text-sm font-light text-gray-900 leading-tight">
+                {content.host}
+              </h2>
+              <h2 className="text-2xl font-semibold tracking-wide text-gray-900 leading-tight">
                 {content.title}
               </h2>
               {content.year && (

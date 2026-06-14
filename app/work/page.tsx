@@ -14,7 +14,7 @@ const Work = async () => {
         </h1>
       </section>
 
-      <section className="w-full px-8">
+      <section className="w-full px-8 py-12 mb-10">
         <Reel info={films} />
       </section>
     </div>
