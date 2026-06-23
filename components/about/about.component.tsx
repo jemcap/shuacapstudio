@@ -20,26 +20,24 @@ const AboutMe = () => {
     <section className="align-element">
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-stretch min-h-[95vh] py-20">
         <div className="flex-1 lg:border-r-2 lg:pr-10 flex flex-col justify-center text-left">
-          <h1 className="text-4xl font-bold mb-4">
+          <h1 className="text-4xl font-semibold mb-4">
             Get Known. I&apos;ll Create the Content.
           </h1>
           <p className="text-lg leading-relaxed text-gray-700">
-            I&apos;m Josh, a videographer and filmmaker with a huge passion for
-            creating authentic, story-driven content. With a background as a
-            long-time creative in the digital space, I&apos;m able to quickly
-            understand the intricate details of a brand, event, or community and
-            translate them into compelling visual stories. My experience as an
-            athlete gives me a strong instinct for capturing movement, emotion,
-            and human performance, but my focus extends beyond sport. Whether
-            I&apos;m filming brands, events, people, or creative campaigns, I
-            aim to create work that feels intentional, cinematic, and true to
-            the story being told.
+            I&apos;m Josh, a cinematographer and filmmaker with a deep passion
+            for creating authentic, story-driven content. With years of
+            experience as a creative in the digital space, I understand both the
+            visual and user experience dimensions of a brand, event, or
+            community—and I translate that understanding into compelling visual
+            stories that resonate. Whether I&apos;m filming brands, events,
+            people, or creative campaigns, I aim to create work that feels
+            intentional, cinematic, and true to the story being told.
           </p>
           <p className="mt-4 text-lg text-gray-700">
-            I merge the creative intuition with technical expertise, building
-            engaging videos and digital experiences designed not just to be
-            seen, but to be felt, driving the growth and loyalty your brand
-            deserves.
+            I obsess over the details that matter—understanding your vision
+            deeply and delivering exactly what you need. My product design and
+            software development background gives me an eye for how everything
+            connects, ensuring every element works together to serve your story.
           </p>
           <p className="mt-4 text-lg text-gray-700">
             Let&apos;s collaborate to elevate your brand through the power of
@@ -59,8 +57,8 @@ const AboutMe = () => {
                 <DialogHeader>
                   <DialogTitle>Let&apos;s Work!</DialogTitle>
                   <DialogDescription>
-                    Please fill out the form below, and I&apos;ll get back to you as
-                    soon as I can!
+                    Please fill out the form below, and I&apos;ll get back to
+                    you as soon as I can!
                   </DialogDescription>
                 </DialogHeader>
                 <ContactForm />
